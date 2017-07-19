@@ -1,0 +1,26 @@
+﻿<div ng-app="atTheMajors">
+    <div ng-controller="DetailsController">
+        <h4>Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                专业序号：
+            </dt>
+
+            <dd>
+                {{major.MajorId}}
+            </dd>
+
+            <dt>
+                专业名称：
+            </dt>
+
+            <dd>
+                {{major.MajorName}}
+            </dd>
+
+        </dl>
+    </div>
+</div>
+
+<a href="#/major/list">返回</a>

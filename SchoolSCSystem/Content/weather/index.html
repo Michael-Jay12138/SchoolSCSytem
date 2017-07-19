@@ -1,0 +1,48 @@
+﻿<!doctype html> 
+<html class="no-js fixed-layout"> 
+<head> 
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<title>jQuery自动定位当地天气预报代码</title> 
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.leoweather.min.js"></script>
+<style>
+	.demo { width:100px; min-width:100px; max-width:100px; }
+    #demo {
+        width: 580px;
+        margin: 150px auto;
+        background: #72af3c;
+        color: #FFF;
+        overflow: hidden;
+        font: 14px/1.5 微软雅黑;
+        text-align: center;
+    }
+        #demo i {
+            float: left;
+            background: no-repeat top left;
+            display: inline-block;
+            height: 68px;
+            line-height: 68px;
+            font-size: 40px;
+            padding-left: 100px;
+            font-style: normal;
+            text-align: center;
+            font-weight: bold;
+        }
+	#demo i.icon-xiaoyu { background-image:url(icon/xiaoyu.png); }
+	#demo i.icon-zhongyu { background-image:url(icon/zhongyu.png); }
+	#demo i.icon-dayu { background-image:url(icon/dayu.png); }
+	#demo i.icon-qing { background-image:url(icon/qing.png); }
+	#demo i.icon-duoyun { background-image:url(icon/duoyun.png); }
+	#demo i.icon-yin { background-image:url(icon/yin.png); }
+	#demo p { float:right; font-size:17px;margin-right:50px }
+	#demo p span { margin:0 15px; }
+</style>
+</head> 
+<body>
+<div id="demo">
+	<script>$('#demo').leoweather({format:'<i class="icon-{图标}">{气温}℃</i><p>{城市}<span>|</span>{天气}<span>|</span>{风向}{风级}级</p>'});</script>
+</div>
+
+</body> 
+</html>

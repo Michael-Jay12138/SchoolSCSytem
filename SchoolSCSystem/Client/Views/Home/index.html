@@ -1,0 +1,152 @@
+﻿
+<script src="/Client/Views/Home/echarts/echarts.min.js"></script>
+<script>
+    function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg))
+            return unescape(arr[2]);
+        else
+            return null;
+    }
+    $(document).ready(function () {
+        var myChart = echarts.init(document.getElementById('echarts_bar'));
+        // 异步加载数据
+        var userid = getCookie("userid");
+        $.get('/api/Score/GetCharsDataByStudentId?studentid=' + getCookie("userid")).then(function (data) {
+            // 填入数据
+            myChart.setOption({
+                title: {
+                    text: '分数表'
+                },
+                tooltip:{
+
+                },
+                legend: {
+                    data: ['分数']
+                },
+                xAxis: {
+                    name: '课程',
+                    data: data.Coursearr
+                },
+                yAxis: [{
+                    name: '分数',
+                },
+                {
+                    name: '分数',
+                }
+                ],
+                series: [{
+                    name: '分数',
+                    data: data.Scorearr,
+                    type: 'bar',
+                    itemStyle: {
+                        normal: { color: '#a8c0df' }
+                    }
+                },
+                {
+                    name: '分数',
+                    data: data.Scorearr,
+                    type: 'line',
+                    itemStyle: {
+                        normal: { color: '#659be0' }
+                    }
+                }
+                ],
+               
+            });
+        });
+        
+    })
+</script>
+<!-- Style.css -->
+<link href="/Client/Views/Home/css/style.css" rel="stylesheet">
+        <div class="section light">
+            <div class="inner">
+                <div class="container">
+                    <h2 class="text-center">What are you want to know?<small>Whatever is worth doing is worth doing well.</small></h2>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <a href="" class="category-box" style="background-image: url('/Client/Views/Home/images/category01.jpg');">
+                                <div class="inner">
+                                    <img src="/Client/Views/Home/images/老师.png" alt="icon">
+                                    <span class="number">16</span>
+                                    <span class="title">Teacher</span>
+                                </div> <!-- end .inner -->
+                            </a> <!-- end .category-box -->
+                        </div> <!-- end .col-md-3 -->
+                        <div class="col-md-3 col-sm-6">
+                            <a href="" class="category-box" style="background-image: url('/Client/Views/Home/images/category02.jpg');">
+                                <div class="inner">
+                                    <img src="/Client/Views/Home/images/分数.png" alt="icon">
+                                    <span class="number">36</span>
+                                    <span class="title">Score</span>
+                                </div> <!-- end .inner -->
+                            </a> <!-- end .category-box -->
+                        </div> <!-- end .col-md-3 -->
+                        <div class="col-sm-6">
+                            <a href="" class="category-box" style="background-image: url('/Client/Views/Home/images/category03.jpg');">
+                                <div class="inner">
+                                    <img src="/Client/Views/Home/images/学生.png" alt="icon">
+                                    <span class="number">39</span>
+                                    <span class="title">Student</span>
+                                </div> <!-- end .inner -->
+                            </a> <!-- end .category-box -->
+                        </div> <!-- end .col-md-3 -->
+                        <div class="col-sm-6">
+                            <a href="" class="category-box" style="background-image: url('/Client/Views/Home/images/category04.jpg');">
+                                <div class="inner">
+                                    <img src="/Client/Views/Home/images/班级.png" alt="icon">
+                                    <span class="number">12</span>
+                                    <span class="title">Class</span>
+                                </div> <!-- end .inner -->
+                            </a> <!-- end .category-box -->
+                        </div> <!-- end .col-sm-6 -->
+                        <div class="col-md-3 col-sm-6">
+                            <a href="" class="category-box" style="background-image: url('/Client/Views/Home/images/category05.jpg');">
+                                <div class="inner">
+                                    <img src="/Client/Views/Home/images/专业.png" alt="icon">
+                                    <span class="number">8</span>
+                                    <span class="title">Major</span>
+                                </div> <!-- end .inner -->
+                            </a> <!-- end .category-box -->
+                        </div> <!-- end .col-md-3 -->
+                        <div class="col-md-3 col-sm-6">
+                            <a href="" class="category-box" style="background-image: url('/Client/Views/Home/images/category06.jpg');">
+                                <div class="inner">
+                                    <img src="/Client/Views/Home/images/课程.png" alt="icon">
+                                    <span class="number">26</span>
+                                    <span class="title">Course</span>
+                                </div> <!-- end .inner -->
+                            </a> <!-- end .category-box -->
+                        </div> <!-- end .col-md-3 -->
+                    </div> <!-- end .row -->
+                </div> <!-- end .container -->
+            </div> <!-- end .inner -->
+        </div> <!-- end .section -->
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light portlet-fit ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class=" icon-layers font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">Bar Chart</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                        <i class="icon-trash"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="echarts_bar" style="height:500px;"></div>
+            </div>
+        </div>
+    </div>
+</div>

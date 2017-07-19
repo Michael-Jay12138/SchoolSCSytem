@@ -1,0 +1,2014 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9BEFFE61-B599-4CBC-AF08-66C647E7BE90}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SchoolSCSystem</RootNamespace>
+    <AssemblyName>SchoolSCSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\assets\apps\css\" />
+    <Folder Include="Content\assets\apps\img\" />
+    <Folder Include="Content\assets\apps\scripts\" />
+    <Folder Include="Content\assets\global\css\" />
+    <Folder Include="Content\assets\global\img\flags\" />
+    <Folder Include="Content\assets\global\img\portfolio\1200x900\" />
+    <Folder Include="Content\assets\global\img\portfolio\400x300\" />
+    <Folder Include="Content\assets\global\img\portfolio\600x600\" />
+    <Folder Include="Content\assets\global\img\social\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\images\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\lang\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\patterns\black\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\patterns\chalk\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\patterns\white\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\plugins\dataloader\examples\data\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\plugins\dataloader\lang\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\plugins\export\examples\images\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\plugins\export\lang\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\plugins\export\libs\blob.js\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\plugins\export\libs\fabric.js\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\plugins\export\libs\FileSaver.js\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\plugins\export\libs\jszip\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\plugins\export\libs\pdfmake\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\plugins\export\libs\xlsx\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\plugins\export\shapes\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\plugins\responsive\examples\images\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amcharts\themes\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\images\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\lang\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\maps\js\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\maps\svg\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\patterns\black\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\patterns\chalk\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\patterns\white\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\plugins\dataloader\examples\data\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\plugins\dataloader\lang\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\plugins\export\examples\images\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\plugins\export\lang\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\plugins\export\libs\blob.js\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\plugins\export\libs\fabric.js\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\plugins\export\libs\FileSaver.js\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\plugins\export\libs\jszip\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\plugins\export\libs\pdfmake\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\plugins\export\libs\xlsx\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\plugins\export\shapes\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\plugins\responsive\examples\images\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\ammap\themes\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\images\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\lang\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\patterns\black\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\patterns\chalk\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\patterns\white\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\plugins\dataloader\examples\data\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\plugins\dataloader\lang\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\plugins\export\examples\images\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\plugins\export\lang\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\plugins\export\libs\blob.js\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\plugins\export\libs\fabric.js\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\plugins\export\libs\FileSaver.js\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\plugins\export\libs\jszip\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\plugins\export\libs\pdfmake\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\plugins\export\libs\xlsx\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\plugins\export\shapes\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\plugins\responsive\examples\images\" />
+    <Folder Include="Content\assets\global\plugins\amcharts\amstockcharts\themes\" />
+    <Folder Include="Content\assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
+    <Folder Include="Content\assets\global\plugins\angularjs\plugins\ui-select\" />
+    <Folder Include="Content\assets\global\plugins\animate\" />
+    <Folder Include="Content\assets\global\plugins\autosize\" />
+    <Folder Include="Content\assets\global\plugins\backstretch\" />
+    <Folder Include="Content\assets\global\plugins\bootbox\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-colorpicker\css\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-colorpicker\img\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-colorpicker\js\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-colorpicker\less\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-confirmation\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-contextmenu\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-datepaginator\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-datepicker\css\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-datepicker\js\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-datepicker\locales\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-daterangepicker\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-datetimepicker\css\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-datetimepicker\js\locales\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-editable\bootstrap-editable\css\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-editable\bootstrap-editable\img\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-editable\bootstrap-editable\js\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-editable\inputs-ext\address\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-editable\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-fileinput\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-growl\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-hover-dropdown\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-markdown\css\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-markdown\js\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-markdown\less\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-markdown\lib\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-markdown\locale\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-maxlength\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-modal\css\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-modal\js\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-pwstrength\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-selectsplitter\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-select\css\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-select\js\i18n\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-sessiontimeout\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-summernote\font\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-summernote\lang\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-switch\css\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-switch\js\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-tabdrop\css\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-tabdrop\js\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\data\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\accent-neutralise\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\angular\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\cookie\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\editable\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\export\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\filter-control\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\filter\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\flat-json\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\group-by\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\key-events\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\mobile\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\multiple-search\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\multiple-sort\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\natural-sorting\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\reorder-columns\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\reorder-rows\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\resizable\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\extensions\toolbar\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-table\locale\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-tagsinput\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-timepicker\css\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-timepicker\js\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-toastr\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-touchspin\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-typeahead\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-wizard\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap-wysihtml5\locales\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap\css\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap\fonts\bootstrap\" />
+    <Folder Include="Content\assets\global\plugins\bootstrap\js\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\adapters\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\lang\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\about\dialogs\hidpi\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\clipboard\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\colordialog\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\dialog\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\div\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\find\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\flash\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\flash\images\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\forms\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\forms\images\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\iframe\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\iframe\images\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\image\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\image\images\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\link\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\link\images\hidpi\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\liststyle\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\magicline\images\hidpi\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\pagebreak\images\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\pastefromword\filter\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\preview\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\scayt\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\showblocks\images\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\smiley\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\smiley\images\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\specialchar\dialogs\lang\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\tabletools\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\table\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\templates\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\templates\templates\images\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\plugins\wsc\dialogs\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\samples\assets\inlineall\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\samples\assets\outputxhtml\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\samples\assets\uilanguages\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\samples\plugins\dialog\assets\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\samples\plugins\enterkey\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\samples\plugins\magicline\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\samples\plugins\toolbar\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\samples\plugins\wysiwygarea\" />
+    <Folder Include="Content\assets\global\plugins\ckeditor\skins\moono\images\hidpi\" />
+    <Folder Include="Content\assets\global\plugins\clockface\css\" />
+    <Folder Include="Content\assets\global\plugins\clockface\js\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\comment\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\dialog\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\display\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\edit\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\fold\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\hint\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\lint\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\merge\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\mode\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\runmode\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\scroll\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\search\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\selection\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\tern\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\addon\wrap\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\lib\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\apl\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\asciiarmor\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\asn.1\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\asterisk\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\brainfuck\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\clike\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\clojure\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\cmake\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\cobol\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\coffeescript\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\commonlisp\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\css\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\cypher\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\dart\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\diff\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\django\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\dockerfile\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\dtd\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\dylan\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\d\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\ebnf\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\ecl\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\eiffel\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\elm\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\erlang\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\factor\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\forth\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\fortran\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\gas\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\gfm\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\gherkin\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\go\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\groovy\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\haml\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\handlebars\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\haskell\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\haxe\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\htmlembedded\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\htmlmixed\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\http\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\idl\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\jade\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\javascript\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\jinja2\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\julia\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\kotlin\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\livescript\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\lua\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\markdown\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\mathematica\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\mirc\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\mllike\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\modelica\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\mumps\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\nginx\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\ntriples\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\octave\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\pascal\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\pegjs\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\perl\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\php\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\pig\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\properties\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\puppet\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\python\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\q\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\rpm\changes\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\rst\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\ruby\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\rust\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\r\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\sass\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\scheme\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\shell\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\sieve\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\slim\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\smalltalk\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\smarty\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\solr\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\soy\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\sparql\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\spreadsheet\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\sql\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\stex\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\stylus\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\swift\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\tcl\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\textile\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\tiddlywiki\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\tiki\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\toml\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\tornado\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\troff\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\ttcn-cfg\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\ttcn\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\turtle\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\twig\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\vbscript\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\vb\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\velocity\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\verilog\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\vhdl\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\xml\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\xquery\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\yaml\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\mode\z80\" />
+    <Folder Include="Content\assets\global\plugins\codemirror\theme\" />
+    <Folder Include="Content\assets\global\plugins\countdown\plugin\" />
+    <Folder Include="Content\assets\global\plugins\counterup\" />
+    <Folder Include="Content\assets\global\plugins\cubeportfolio\ajax\" />
+    <Folder Include="Content\assets\global\plugins\cubeportfolio\css\" />
+    <Folder Include="Content\assets\global\plugins\cubeportfolio\img\" />
+    <Folder Include="Content\assets\global\plugins\cubeportfolio\js\" />
+    <Folder Include="Content\assets\global\plugins\datatables\images\" />
+    <Folder Include="Content\assets\global\plugins\datatables\plugins\bootstrap\" />
+    <Folder Include="Content\assets\global\plugins\dropzone\" />
+    <Folder Include="Content\assets\global\plugins\echarts\chart\" />
+    <Folder Include="Content\assets\global\plugins\fancybox\lib\" />
+    <Folder Include="Content\assets\global\plugins\fancybox\source\helpers\" />
+    <Folder Include="Content\assets\global\plugins\flot\" />
+    <Folder Include="Content\assets\global\plugins\flowchart\" />
+    <Folder Include="Content\assets\global\plugins\font-awesome\css\" />
+    <Folder Include="Content\assets\global\plugins\font-awesome\fonts\" />
+    <Folder Include="Content\assets\global\plugins\fuelux\js\" />
+    <Folder Include="Content\assets\global\plugins\fullcalendar\demos\json\" />
+    <Folder Include="Content\assets\global\plugins\fullcalendar\demos\php\" />
+    <Folder Include="Content\assets\global\plugins\fullcalendar\lang\" />
+    <Folder Include="Content\assets\global\plugins\fullcalendar\lib\cupertino\images\" />
+    <Folder Include="Content\assets\global\plugins\gmaps\" />
+    <Folder Include="Content\assets\global\plugins\highcharts\js\adapters\" />
+    <Folder Include="Content\assets\global\plugins\highcharts\js\modules\" />
+    <Folder Include="Content\assets\global\plugins\highcharts\js\themes\" />
+    <Folder Include="Content\assets\global\plugins\highmaps\js\adapters\" />
+    <Folder Include="Content\assets\global\plugins\highmaps\js\modules\" />
+    <Folder Include="Content\assets\global\plugins\highmaps\js\themes\" />
+    <Folder Include="Content\assets\global\plugins\highstock\js\adapters\" />
+    <Folder Include="Content\assets\global\plugins\highstock\js\modules\" />
+    <Folder Include="Content\assets\global\plugins\highstock\js\themes\" />
+    <Folder Include="Content\assets\global\plugins\horizontal-timeline\" />
+    <Folder Include="Content\assets\global\plugins\icheck\demo\css\ie\" />
+    <Folder Include="Content\assets\global\plugins\icheck\demo\js\" />
+    <Folder Include="Content\assets\global\plugins\icheck\skins\flat\" />
+    <Folder Include="Content\assets\global\plugins\icheck\skins\futurico\" />
+    <Folder Include="Content\assets\global\plugins\icheck\skins\line\" />
+    <Folder Include="Content\assets\global\plugins\icheck\skins\minimal\" />
+    <Folder Include="Content\assets\global\plugins\icheck\skins\polaris\" />
+    <Folder Include="Content\assets\global\plugins\icheck\skins\square\" />
+    <Folder Include="Content\assets\global\plugins\ion.rangeslider\css\" />
+    <Folder Include="Content\assets\global\plugins\ion.rangeslider\img\" />
+    <Folder Include="Content\assets\global\plugins\ion.rangeslider\js\" />
+    <Folder Include="Content\assets\global\plugins\jcrop\css\" />
+    <Folder Include="Content\assets\global\plugins\jcrop\demos\demo_files\" />
+    <Folder Include="Content\assets\global\plugins\jcrop\js\" />
+    <Folder Include="Content\assets\global\plugins\jquery-bootpag\" />
+    <Folder Include="Content\assets\global\plugins\jquery-cookiebar\" />
+    <Folder Include="Content\assets\global\plugins\jquery-easypiechart\" />
+    <Folder Include="Content\assets\global\plugins\jquery-file-upload\blueimp-gallery\" />
+    <Folder Include="Content\assets\global\plugins\jquery-file-upload\cors\" />
+    <Folder Include="Content\assets\global\plugins\jquery-file-upload\css\" />
+    <Folder Include="Content\assets\global\plugins\jquery-file-upload\img\" />
+    <Folder Include="Content\assets\global\plugins\jquery-file-upload\js\cors\" />
+    <Folder Include="Content\assets\global\plugins\jquery-file-upload\js\vendor\" />
+    <Folder Include="Content\assets\global\plugins\jquery-gantt\img\" />
+    <Folder Include="Content\assets\global\plugins\jquery-idle-timeout\" />
+    <Folder Include="Content\assets\global\plugins\jquery-inputmask\inputmask\" />
+    <Folder Include="Content\assets\global\plugins\jquery-knob\js\" />
+    <Folder Include="Content\assets\global\plugins\jquery-minicolors\" />
+    <Folder Include="Content\assets\global\plugins\jquery-mixitup\" />
+    <Folder Include="Content\assets\global\plugins\jquery-multi-select\css\" />
+    <Folder Include="Content\assets\global\plugins\jquery-multi-select\img\" />
+    <Folder Include="Content\assets\global\plugins\jquery-multi-select\js\" />
+    <Folder Include="Content\assets\global\plugins\jquery-nestable\" />
+    <Folder Include="Content\assets\global\plugins\jquery-notific8\" />
+    <Folder Include="Content\assets\global\plugins\jquery-slimscroll\" />
+    <Folder Include="Content\assets\global\plugins\jquery-ui-touch-punch\" />
+    <Folder Include="Content\assets\global\plugins\jquery-ui\images\" />
+    <Folder Include="Content\assets\global\plugins\jquery-validation\js\localization\" />
+    <Folder Include="Content\assets\global\plugins\jqvmap\jqvmap\data\" />
+    <Folder Include="Content\assets\global\plugins\jqvmap\jqvmap\maps\" />
+    <Folder Include="Content\assets\global\plugins\jqvmap\samples\" />
+    <Folder Include="Content\assets\global\plugins\jstree\dist\themes\default-dark\" />
+    <Folder Include="Content\assets\global\plugins\jstree\dist\themes\default\" />
+    <Folder Include="Content\assets\global\plugins\ladda\" />
+    <Folder Include="Content\assets\global\plugins\mapplic\css\" />
+    <Folder Include="Content\assets\global\plugins\mapplic\fonts\" />
+    <Folder Include="Content\assets\global\plugins\mapplic\images\apartment\" />
+    <Folder Include="Content\assets\global\plugins\mapplic\images\mall\" />
+    <Folder Include="Content\assets\global\plugins\mapplic\images\thumbs\" />
+    <Folder Include="Content\assets\global\plugins\mapplic\images\world\" />
+    <Folder Include="Content\assets\global\plugins\mapplic\js\" />
+    <Folder Include="Content\assets\global\plugins\mapplic\mapplic\images\" />
+    <Folder Include="Content\assets\global\plugins\mapplic\maps\" />
+    <Folder Include="Content\assets\global\plugins\morris\examples\lib\" />
+    <Folder Include="Content\assets\global\plugins\morris\less\" />
+    <Folder Include="Content\assets\global\plugins\morris\lib\" />
+    <Folder Include="Content\assets\global\plugins\morris\spec\lib\area\" />
+    <Folder Include="Content\assets\global\plugins\morris\spec\lib\bar\" />
+    <Folder Include="Content\assets\global\plugins\morris\spec\lib\donut\" />
+    <Folder Include="Content\assets\global\plugins\morris\spec\lib\grid\" />
+    <Folder Include="Content\assets\global\plugins\morris\spec\lib\line\" />
+    <Folder Include="Content\assets\global\plugins\morris\spec\support\" />
+    <Folder Include="Content\assets\global\plugins\morris\spec\viz\exemplary\" />
+    <Folder Include="Content\assets\global\plugins\nouislider\" />
+    <Folder Include="Content\assets\global\plugins\owl-carousel\assets\css\" />
+    <Folder Include="Content\assets\global\plugins\owl-carousel\assets\ico\" />
+    <Folder Include="Content\assets\global\plugins\owl-carousel\assets\img\demo-slides\" />
+    <Folder Include="Content\assets\global\plugins\owl-carousel\assets\js\google-code-prettify\" />
+    <Folder Include="Content\assets\global\plugins\pace\themes\" />
+    <Folder Include="Content\assets\global\plugins\plupload\js\i18n\" />
+    <Folder Include="Content\assets\global\plugins\plupload\js\jquery.plupload.queue\css\" />
+    <Folder Include="Content\assets\global\plugins\plupload\js\jquery.plupload.queue\img\" />
+    <Folder Include="Content\assets\global\plugins\plupload\js\jquery.ui.plupload\css\" />
+    <Folder Include="Content\assets\global\plugins\plupload\js\jquery.ui.plupload\img\" />
+    <Folder Include="Content\assets\global\plugins\prism\" />
+    <Folder Include="Content\assets\global\plugins\select2\css\" />
+    <Folder Include="Content\assets\global\plugins\select2\js\i18n\" />
+    <Folder Include="Content\assets\global\plugins\select2\sass\" />
+    <Folder Include="Content\assets\global\plugins\simple-line-icons\fonts\" />
+    <Folder Include="Content\assets\global\plugins\socicon\eps\" />
+    <Folder Include="Content\assets\global\plugins\socicon\font\" />
+    <Folder Include="Content\assets\global\plugins\socicon\png\" />
+    <Folder Include="Content\assets\global\plugins\socicon\svg\" />
+    <Folder Include="Content\assets\global\plugins\tabdrop\css\" />
+    <Folder Include="Content\assets\global\plugins\tabdrop\js\" />
+    <Folder Include="Content\assets\global\plugins\tabdrop\less\" />
+    <Folder Include="Content\assets\global\plugins\typeahead\" />
+    <Folder Include="Content\assets\global\scripts\" />
+    <Folder Include="Content\assets\layouts\global\scripts\" />
+    <Folder Include="Content\assets\layouts\layout2\css\themes\" />
+    <Folder Include="Content\assets\layouts\layout2\img\" />
+    <Folder Include="Content\assets\layouts\layout2\scripts\" />
+    <Folder Include="Content\assets\layouts\layout3\css\themes\" />
+    <Folder Include="Content\assets\layouts\layout3\img\" />
+    <Folder Include="Content\assets\layouts\layout3\scripts\" />
+    <Folder Include="Content\assets\layouts\layout\css\themes\" />
+    <Folder Include="Content\assets\layouts\layout\img\" />
+    <Folder Include="Content\assets\layouts\layout\scripts\" />
+    <Folder Include="Content\assets\pages\css\" />
+    <Folder Include="Content\assets\pages\img\avatars\" />
+    <Folder Include="Content\assets\pages\img\background\" />
+    <Folder Include="Content\assets\pages\img\login\" />
+    <Folder Include="Content\assets\pages\img\logos\" />
+    <Folder Include="Content\assets\pages\img\page_general_search\" />
+    <Folder Include="Content\assets\pages\media\bg\" />
+    <Folder Include="Content\assets\pages\media\blog\" />
+    <Folder Include="Content\assets\pages\media\email\" />
+    <Folder Include="Content\assets\pages\media\gallery\" />
+    <Folder Include="Content\assets\pages\media\invoice\" />
+    <Folder Include="Content\assets\pages\media\pages\" />
+    <Folder Include="Content\assets\pages\media\profile\" />
+    <Folder Include="Content\assets\pages\media\search\" />
+    <Folder Include="Content\assets\pages\media\users\" />
+    <Folder Include="Content\assets\pages\media\works\" />
+    <Folder Include="Content\assets\pages\scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ApprovalDataController.cs" />
+    <Compile Include="Controllers\ApprovalNodeController.cs" />
+    <Compile Include="Controllers\ApprovalNode_UserController.cs" />
+    <Compile Include="Controllers\ApprovalProcessController.cs" />
+    <Compile Include="Controllers\ClassController.cs" />
+    <Compile Include="Controllers\ClassRoomController.cs" />
+    <Compile Include="Controllers\ClassRoom_UserController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\Course_TeacherController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LeaveController.cs" />
+    <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\MajorController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\Role_MenuController.cs" />
+    <Compile Include="Controllers\ScoreController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\TeacherController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\User_RoleController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApprovalData.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApprovalNode.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApprovalNode_User.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApprovalProcess.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Class.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClassRoom.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClassRoom_User.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Course.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Course_Teacher.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Leave.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Log.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Major.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Menu.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role_Menu.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Score.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SSCSModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSCSModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SSCSModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SSCSModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSCSModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Teacher.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User_Role.cs">
+      <DependentUpon>SSCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ApprovalData.cs" />
+    <Compile Include="ViewModels\ApprovalNode_User.cs" />
+    <Compile Include="ViewModels\ClassRoom_User.cs" />
+    <Compile Include="ViewModels\Course_Teacher.cs" />
+    <Compile Include="ViewModels\Menu.cs" />
+    <Compile Include="ViewModels\Role_Menu.cs" />
+    <Compile Include="ViewModels\Score.cs" />
+    <Compile Include="ViewModels\Student.cs" />
+    <Compile Include="ViewModels\User_Role.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Client\Scripts\ApprovalData\atTheApprovalDatas.js" />
+    <Content Include="Client\Scripts\ApprovalData\DetailsController.js" />
+    <Content Include="Client\Scripts\ApprovalData\EditController.js" />
+    <Content Include="Client\Scripts\ApprovalData\FormController.js" />
+    <Content Include="Client\Scripts\ApprovalData\ListController.js" />
+    <Content Include="Client\Scripts\ApprovalNode\atTheApprovalNodes.js" />
+    <Content Include="Client\Scripts\ApprovalNode\DetailsController.js" />
+    <Content Include="Client\Scripts\ApprovalNode\EditController.js" />
+    <Content Include="Client\Scripts\ApprovalNode\ListController.js" />
+    <Content Include="Client\Scripts\ApprovalNode_User\atTheApprovalNode_Users.js" />
+    <Content Include="Client\Scripts\ApprovalNode_User\DetailsController.js" />
+    <Content Include="Client\Scripts\ApprovalNode_User\EditController.js" />
+    <Content Include="Client\Scripts\ApprovalNode_User\ListController.js" />
+    <Content Include="Client\Scripts\ApprovalProcess\atTheApprovalProcesses.js" />
+    <Content Include="Client\Scripts\ApprovalProcess\DetailsController.js" />
+    <Content Include="Client\Scripts\ApprovalProcess\EditController.js" />
+    <Content Include="Client\Scripts\ApprovalProcess\ListController.js" />
+    <Content Include="Client\Scripts\ClassRoom\atTheClassRooms.js" />
+    <Content Include="Client\Scripts\ClassRoom\DetailsController.js" />
+    <Content Include="Client\Scripts\ClassRoom\EditController.js" />
+    <Content Include="Client\Scripts\ClassRoom\ListController.js" />
+    <Content Include="Client\Scripts\ClassRoom_User\atTheClassRoom_Users.js" />
+    <Content Include="Client\Scripts\ClassRoom_User\DetailsController.js" />
+    <Content Include="Client\Scripts\ClassRoom_User\EditController.js" />
+    <Content Include="Client\Scripts\ClassRoom_User\ListController.js" />
+    <Content Include="Client\Scripts\Class\atTheClasses.js" />
+    <Content Include="Client\Scripts\Class\DetailsController.js" />
+    <Content Include="Client\Scripts\Class\EditController.js" />
+    <Content Include="Client\Scripts\Class\ListController.js" />
+    <Content Include="Client\Scripts\Course\atTheCourses.js" />
+    <Content Include="Client\Scripts\Course\DetailsController.js" />
+    <Content Include="Client\Scripts\Course\EditController.js" />
+    <Content Include="Client\Scripts\Course\ListController.js" />
+    <Content Include="Client\Scripts\Course_Teacher\atTheCourse_Teachers.js" />
+    <Content Include="Client\Scripts\Course_Teacher\DetailsController.js" />
+    <Content Include="Client\Scripts\Course_Teacher\EditController.js" />
+    <Content Include="Client\Scripts\Course_Teacher\ListController.js" />
+    <Content Include="Client\Scripts\Home\atTheHomes.js" />
+    <Content Include="Client\Scripts\Leave\atTheLeaves.js" />
+    <Content Include="Client\Scripts\Leave\DetailsController.js" />
+    <Content Include="Client\Scripts\Leave\EditController.js" />
+    <Content Include="Client\Scripts\Leave\ListController.js" />
+    <Content Include="Client\Scripts\Log\atTheLogs.js" />
+    <Content Include="Client\Scripts\Log\DetailsController.js" />
+    <Content Include="Client\Scripts\Log\EditController.js" />
+    <Content Include="Client\Scripts\Log\ListController.js" />
+    <Content Include="Client\Scripts\Major\atTheMajors.js" />
+    <Content Include="Client\Scripts\Major\DetailsController.js" />
+    <Content Include="Client\Scripts\Major\EditController.js" />
+    <Content Include="Client\Scripts\Major\ListController.js" />
+    <Content Include="Client\Scripts\Menu\atTheMenus.js" />
+    <Content Include="Client\Scripts\Menu\DetailsController.js" />
+    <Content Include="Client\Scripts\Menu\EditController.js" />
+    <Content Include="Client\Scripts\Menu\ListController.js" />
+    <Content Include="Client\Scripts\Role\atTheRoles.js" />
+    <Content Include="Client\Scripts\Role\DetailsController.js" />
+    <Content Include="Client\Scripts\Role\EditController.js" />
+    <Content Include="Client\Scripts\Role\ListController.js" />
+    <Content Include="Client\Scripts\Role_Menu\atTheRole_Menus.js" />
+    <Content Include="Client\Scripts\Role_Menu\DetailsController.js" />
+    <Content Include="Client\Scripts\Role_Menu\EditController.js" />
+    <Content Include="Client\Scripts\Role_Menu\ListController.js" />
+    <Content Include="Client\Scripts\Score\atTheScores.js" />
+    <Content Include="Client\Scripts\Score\DetailsController.js" />
+    <Content Include="Client\Scripts\Score\EditController.js" />
+    <Content Include="Client\Scripts\Score\ListController.js" />
+    <Content Include="Client\Scripts\Student\atTheStudents.js" />
+    <Content Include="Client\Scripts\Student\DetailsController.js" />
+    <Content Include="Client\Scripts\Student\EditController.js" />
+    <Content Include="Client\Scripts\Student\ListController.js" />
+    <Content Include="Client\Scripts\Teacher\atTheTeachers.js" />
+    <Content Include="Client\Scripts\Teacher\DetailsController.js" />
+    <Content Include="Client\Scripts\Teacher\EditController.js" />
+    <Content Include="Client\Scripts\Teacher\ListController.js" />
+    <Content Include="Client\Scripts\User\atTheUsers.js" />
+    <Content Include="Client\Scripts\User\DetailsController.js" />
+    <Content Include="Client\Scripts\User\EditController.js" />
+    <Content Include="Client\Scripts\User\InfoController.js" />
+    <Content Include="Client\Scripts\User\ListController.js" />
+    <Content Include="Client\Scripts\User_Role\atTheUser_Roles.js" />
+    <Content Include="Client\Scripts\User_Role\DetailsController.js" />
+    <Content Include="Client\Scripts\User_Role\EditController.js" />
+    <Content Include="Client\Scripts\User_Role\ListController.js" />
+    <Content Include="Client\Service\approvalDataService.js" />
+    <Content Include="Client\Service\approvalnodeService.js" />
+    <Content Include="Client\Service\approvalnode_userService.js" />
+    <Content Include="Client\Service\ApprovalProcessService.js" />
+    <Content Include="Client\Service\classroomService.js" />
+    <Content Include="Client\Service\classroom_userService.js" />
+    <Content Include="Client\Service\classService.js" />
+    <Content Include="Client\Service\courseService.js" />
+    <Content Include="Client\Service\course_teacherService.js" />
+    <Content Include="Client\Service\leaveService.js" />
+    <Content Include="Client\Service\logService.js" />
+    <Content Include="Client\Service\majorService.js" />
+    <Content Include="Client\Service\menuService.js" />
+    <Content Include="Client\Service\roleService.js" />
+    <Content Include="Client\Service\role_menuService.js" />
+    <Content Include="Client\Service\scoreService.js" />
+    <Content Include="Client\Service\studentService.js" />
+    <Content Include="Client\Service\teacherService.js" />
+    <Content Include="Client\Service\userService.js" />
+    <Content Include="Client\Service\user_roleService.js" />
+    <Content Include="Client\Views\ApprovalData\assets\css\demo.css" />
+    <Content Include="Client\Views\ApprovalData\assets\css\normalize.css" />
+    <Content Include="Client\Views\ApprovalData\assets\design\css\trumbowyg.css" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x-s9034954e6d.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\attachement.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\barre.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\bold.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\center-align.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\close.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\formatting.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\fullscreen-exit.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\fullscreen.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\gras.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\horizontal-rule.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\image.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\italic.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\justify-align.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\left-align.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\link.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\ordered-list.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\right-align.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\souligne.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\strikethrough.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\underline.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\unordered-list.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\video.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-2x\view-html.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons-sa75ce98b2b.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\attachement.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\barre.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\bold.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\center-align.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\close.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\formatting.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\fullscreen-exit.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\fullscreen.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\gras.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\horizontal-rule.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\image.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\italic.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\justify-align.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\left-align.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\link.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\ordered-list.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\right-align.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\souligne.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\strikethrough.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\underline.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\unordered-list.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\video.png" />
+    <Content Include="Client\Views\ApprovalData\assets\design\images\icons\view-html.png" />
+    <Content Include="Client\Views\ApprovalData\assets\jquery-v1.10.2.min.js" />
+    <Content Include="Client\Views\ApprovalData\assets\jquery.min.js" />
+    <Content Include="Client\Views\ApprovalData\assets\js\img2blob.js" />
+    <Content Include="Client\Views\ApprovalData\assets\js\jquery-1.11.0.min.js" />
+    <Content Include="Client\Views\ApprovalData\assets\js\jquery.jqprint-0.3.js" />
+    <Content Include="Client\Views\ApprovalData\assets\langs\ca.js" />
+    <Content Include="Client\Views\ApprovalData\assets\langs\de.js" />
+    <Content Include="Client\Views\ApprovalData\assets\langs\en.js" />
+    <Content Include="Client\Views\ApprovalData\assets\langs\es_ar.js" />
+    <Content Include="Client\Views\ApprovalData\assets\langs\fa.js" />
+    <Content Include="Client\Views\ApprovalData\assets\langs\fi.js" />
+    <Content Include="Client\Views\ApprovalData\assets\langs\fr.js" />
+    <Content Include="Client\Views\ApprovalData\assets\langs\ko.js" />
+    <Content Include="Client\Views\ApprovalData\assets\langs\pt.js" />
+    <Content Include="Client\Views\ApprovalData\assets\langs\ru.js" />
+    <Content Include="Client\Views\ApprovalData\assets\langs\zh_cn.js" />
+    <Content Include="Client\Views\ApprovalData\assets\pic\cz.png" />
+    <Content Include="Client\Views\ApprovalData\assets\pic\fd.png" />
+    <Content Include="Client\Views\ApprovalData\assets\pic\sc.png" />
+    <Content Include="Client\Views\ApprovalData\assets\pic\sx.png" />
+    <Content Include="Client\Views\ApprovalData\assets\pic\tj.png" />
+    <Content Include="Client\Views\ApprovalData\assets\plugins\base64\trumbowyg.base64.js" />
+    <Content Include="Client\Views\ApprovalData\assets\plugins\base64\trumbowyg.base64.min.js" />
+    <Content Include="Client\Views\ApprovalData\assets\plugins\upload\trumbowyg.upload.js" />
+    <Content Include="Client\Views\ApprovalData\assets\plugins\upload\trumbowyg.upload.min.js" />
+    <Content Include="Client\Views\ApprovalData\assets\trumbowyg.js" />
+    <Content Include="Client\Views\ApprovalData\confirm.html" />
+    <Content Include="Client\Views\ApprovalData\details.html" />
+    <Content Include="Client\Views\ApprovalData\list.html" />
+    <Content Include="Client\Views\ApprovalData\form.html" />
+    <Content Include="Client\Views\ApprovalNode\details.html" />
+    <Content Include="Client\Views\ApprovalNode\list.html" />
+    <Content Include="Client\Views\ApprovalNode_User\details.html" />
+    <Content Include="Client\Views\ApprovalNode_User\list.html" />
+    <Content Include="Client\Views\ApprovalProcess\details.html" />
+    <Content Include="Client\Views\ApprovalProcess\list.html" />
+    <Content Include="Client\Views\ClassRoom\details.html" />
+    <Content Include="Client\Views\ClassRoom\list.html" />
+    <Content Include="Client\Views\ClassRoom_User\details.html" />
+    <Content Include="Client\Views\ClassRoom_User\list.html" />
+    <Content Include="Client\Views\Class\details.html" />
+    <Content Include="Client\Views\Class\list.html" />
+    <Content Include="Client\Views\Course\details.html" />
+    <Content Include="Client\Views\Course\list.html" />
+    <Content Include="Client\Views\Course_Teacher\details.html" />
+    <Content Include="Client\Views\Course_Teacher\list.html" />
+    <Content Include="Client\Views\Home\echarts\echarts.min.js" />
+    <Content Include="Client\Views\Leave\details.html" />
+    <Content Include="Client\Views\Leave\list.html" />
+    <Content Include="Client\Views\Login\css\animate.min.css" />
+    <Content Include="Client\Views\Login\css\bootstrap.min.css" />
+    <Content Include="Client\Views\Login\css\jquery.nouislider.min.css" />
+    <Content Include="Client\Views\Login\css\owl.carousel.css" />
+    <Content Include="Client\Views\Login\css\owl.theme.default.css" />
+    <Content Include="Client\Views\Login\css\search-form.css" />
+    <Content Include="Client\Views\Login\css\style.css" />
+    <Content Include="Client\Views\Login\css\sweetalert.css" />
+    <Content Include="Client\Views\Login\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Client\Views\Login\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Client\Views\Login\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Client\Views\Login\fonts\icomoon.svg" />
+    <Content Include="Client\Views\Login\fonts\pe-icon-7-stroke\css\helper.css" />
+    <Content Include="Client\Views\Login\fonts\pe-icon-7-stroke\css\pe-icon-7-stroke.css" />
+    <Content Include="Client\Views\Login\fonts\pe-icon-social\css\helper.css" />
+    <Content Include="Client\Views\Login\fonts\pe-icon-social\css\pe-icon-social.css" />
+    <Content Include="Client\Views\Login\fonts\quicksand-dash\stylesheet.css" />
+    <Content Include="Client\Views\Login\images\background01.jpg" />
+    <Content Include="Client\Views\Login\images\category01.jpg" />
+    <Content Include="Client\Views\Login\images\category02.jpg" />
+    <Content Include="Client\Views\Login\images\category03.jpg" />
+    <Content Include="Client\Views\Login\images\category04.jpg" />
+    <Content Include="Client\Views\Login\images\category05.jpg" />
+    <Content Include="Client\Views\Login\images\category06.jpg" />
+    <Content Include="Client\Views\Login\images\dropdown.png" />
+    <Content Include="Client\Views\Login\images\logo.jpg" />
+    <Content Include="Client\Views\Login\images\logo.png" />
+    <Content Include="Client\Views\Login\images\专业.png" />
+    <Content Include="Client\Views\Login\images\学生.png" />
+    <Content Include="Client\Views\Login\images\教室.png" />
+    <Content Include="Client\Views\Login\images\班级.png" />
+    <Content Include="Client\Views\Login\images\老师.png" />
+    <Content Include="Client\Views\Login\images\课程.png" />
+    <Content Include="Client\Views\Login\index.html" />
+    <Content Include="Client\Views\Login\js\bootstrap.min.js" />
+    <Content Include="Client\Views\Login\js\countdown.js" />
+    <Content Include="Client\Views\Login\js\jquery-3.1.0.min.js" />
+    <Content Include="Client\Views\Login\js\jquery.nouislider.all.min.js" />
+    <Content Include="Client\Views\Login\js\owl.carousel.min.js" />
+    <Content Include="Client\Views\Login\js\richmarker.js" />
+    <Content Include="Client\Views\Login\js\scripts.js" />
+    <Content Include="Client\Views\Login\js\sweetalert.min.js" />
+    <Content Include="Client\Views\Login\scripts\jquery-ui.min.js" />
+    <Content Include="Client\Views\Login\scripts\Nivo-Lightbox\nivo-lightbox.css" />
+    <Content Include="Client\Views\Login\scripts\Nivo-Lightbox\nivo-lightbox.min.js" />
+    <Content Include="Client\Views\Login\scripts\Nivo-Lightbox\themes\default\close%402x.png" />
+    <Content Include="Client\Views\Login\scripts\Nivo-Lightbox\themes\default\close.png" />
+    <Content Include="Client\Views\Login\scripts\Nivo-Lightbox\themes\default\default.css" />
+    <Content Include="Client\Views\Login\scripts\Nivo-Lightbox\themes\default\loading%402x.gif" />
+    <Content Include="Client\Views\Login\scripts\Nivo-Lightbox\themes\default\loading.gif" />
+    <Content Include="Client\Views\Login\scripts\Nivo-Lightbox\themes\default\next%402x.png" />
+    <Content Include="Client\Views\Login\scripts\Nivo-Lightbox\themes\default\next.png" />
+    <Content Include="Client\Views\Login\scripts\Nivo-Lightbox\themes\default\prev%402x.png" />
+    <Content Include="Client\Views\Login\scripts\Nivo-Lightbox\themes\default\prev.png" />
+    <Content Include="Client\Views\Login\weather\icon\dayu.png" />
+    <Content Include="Client\Views\Login\weather\icon\duoyun.png" />
+    <Content Include="Client\Views\Login\weather\icon\qing.png" />
+    <Content Include="Client\Views\Login\weather\icon\xiaoyu.png" />
+    <Content Include="Client\Views\Login\weather\icon\yin.png" />
+    <Content Include="Client\Views\Login\weather\icon\zhongyu.png" />
+    <Content Include="Client\Views\Login\weather\index.html" />
+    <Content Include="Client\Views\Login\weather\js\jquery.leoweather.min.js" />
+    <Content Include="Client\Views\Login\weather\js\jquery.min.js" />
+    <Content Include="Client\Views\Login\weather\说明.txt" />
+    <Content Include="Client\Views\Log\details.html" />
+    <Content Include="Client\Views\Log\list.html" />
+    <Content Include="Client\Views\Major\details.html" />
+    <Content Include="Client\Views\Major\list.html" />
+    <Content Include="Client\Views\Menu\details.html" />
+    <Content Include="Client\Views\Menu\list.html" />
+    <Content Include="Client\Views\Role\details.html" />
+    <Content Include="Client\Views\Role\list.html" />
+    <Content Include="Client\Views\Role_Menu\details.html" />
+    <Content Include="Client\Views\Role_Menu\list.html" />
+    <Content Include="Client\Views\Score\details.html" />
+    <Content Include="Client\Views\Score\list.html" />
+    <Content Include="Client\Views\Student\details.html" />
+    <Content Include="Client\Views\Student\list.html" />
+    <Content Include="Client\Views\Teacher\details.html" />
+    <Content Include="Client\Views\Teacher\list.html" />
+    <Content Include="Client\Views\User\details.html" />
+    <Content Include="Client\Views\User\info.html" />
+    <Content Include="Client\Views\User\list.html" />
+    <Content Include="Client\Views\User_Role\details.html" />
+    <Content Include="Client\Views\User_Role\list.html" />
+    <Content Include="Client\Views\Home\css\animate.min.css" />
+    <Content Include="Client\Views\Home\css\bootstrap.min.css" />
+    <Content Include="Client\Views\Home\css\jquery.nouislider.min.css" />
+    <Content Include="Client\Views\Home\css\owl.carousel.css" />
+    <Content Include="Client\Views\Home\css\owl.theme.default.css" />
+    <Content Include="Client\Views\Home\css\style.css" />
+    <Content Include="Client\Views\Home\css\sweetalert.css" />
+    <Content Include="Client\Views\Home\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Client\Views\Home\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Client\Views\Home\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Client\Views\Home\fonts\pe-icon-7-stroke\css\helper.css" />
+    <Content Include="Client\Views\Home\fonts\pe-icon-7-stroke\css\pe-icon-7-stroke.css" />
+    <Content Include="Client\Views\Home\fonts\pe-icon-social\css\helper.css" />
+    <Content Include="Client\Views\Home\fonts\pe-icon-social\css\pe-icon-social.css" />
+    <Content Include="Client\Views\Home\fonts\quicksand-dash\stylesheet.css" />
+    <Content Include="Client\Views\Home\images\background01.jpg" />
+    <Content Include="Client\Views\Home\images\background02.jpg" />
+    <Content Include="Client\Views\Home\images\background03.jpg" />
+    <Content Include="Client\Views\Home\images\category01.jpg" />
+    <Content Include="Client\Views\Home\images\category02.jpg" />
+    <Content Include="Client\Views\Home\images\category03.jpg" />
+    <Content Include="Client\Views\Home\images\category04.jpg" />
+    <Content Include="Client\Views\Home\images\category05.jpg" />
+    <Content Include="Client\Views\Home\images\category06.jpg" />
+    <Content Include="Client\Views\Home\images\logo.jpg" />
+    <Content Include="Client\Views\Home\images\logo.png" />
+    <Content Include="Client\Views\Home\images\专业.png" />
+    <Content Include="Client\Views\Home\images\分数.png" />
+    <Content Include="Client\Views\Home\images\学生.png" />
+    <Content Include="Client\Views\Home\images\班级.png" />
+    <Content Include="Client\Views\Home\images\老师.png" />
+    <Content Include="Client\Views\Home\images\课程.png" />
+    <Content Include="Client\Views\Home\index.html" />
+    <Content Include="Client\Views\Home\js\bootstrap.min.js" />
+    <Content Include="Client\Views\Home\js\countdown.js" />
+    <Content Include="Client\Views\Home\js\jquery-3.1.0.min.js" />
+    <Content Include="Client\Views\Home\js\jquery.nouislider.all.min.js" />
+    <Content Include="Client\Views\Home\js\owl.carousel.min.js" />
+    <Content Include="Client\Views\Home\js\richmarker.js" />
+    <Content Include="Client\Views\Home\js\scripts.js" />
+    <Content Include="Client\Views\Home\js\sweetalert.min.js" />
+    <Content Include="Client\Views\Home\scripts\Nivo-Lightbox\nivo-lightbox.css" />
+    <Content Include="Client\Views\Home\scripts\Nivo-Lightbox\nivo-lightbox.min.js" />
+    <Content Include="Client\Views\Home\scripts\Nivo-Lightbox\themes\default\close%402x.png" />
+    <Content Include="Client\Views\Home\scripts\Nivo-Lightbox\themes\default\close.png" />
+    <Content Include="Client\Views\Home\scripts\Nivo-Lightbox\themes\default\default.css" />
+    <Content Include="Client\Views\Home\scripts\Nivo-Lightbox\themes\default\loading%402x.gif" />
+    <Content Include="Client\Views\Home\scripts\Nivo-Lightbox\themes\default\loading.gif" />
+    <Content Include="Client\Views\Home\scripts\Nivo-Lightbox\themes\default\next%402x.png" />
+    <Content Include="Client\Views\Home\scripts\Nivo-Lightbox\themes\default\next.png" />
+    <Content Include="Client\Views\Home\scripts\Nivo-Lightbox\themes\default\prev%402x.png" />
+    <Content Include="Client\Views\Home\scripts\Nivo-Lightbox\themes\default\prev.png" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Font-Awesome-master\css\font-awesome.css" />
+    <Content Include="Content\Font-Awesome-master\css\font-awesome.min.css" />
+    <Content Include="Content\Font-Awesome-master\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Font-Awesome-master\HELP-US-OUT.txt" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\css\prettify.css" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\css\pygments.css" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\css\site.css" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\css\font-awesome-ie7.css" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\css\font-awesome-ie7.min.css" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\font\fontawesome-webfont.svg" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\ico\favicon.ico" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\img\contribution-sample.png" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\img\fort_awesome.jpg" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\img\glyphicons-halflings.png" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\js\backbone.min.js" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\js\bootstrap-2.3.1.min.js" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\js\bootstrap-222.min.js" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\js\jquery-1.7.1.min.js" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\js\prettify.min.js" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\js\site.js" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\js\underscore.min.js" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\js\ZeroClipboard-1.1.7.min.js" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\js\ZeroClipboard-1.1.7.swf" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\cheatsheet\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\community\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\design.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\examples\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\get-started\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icons\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\adjust\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\adn\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\align-center\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\align-justify\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\align-left\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\align-right\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\ambulance\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\anchor\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\android\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\angle-down\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\angle-left\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\angle-right\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\angle-up\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\apple\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\archive\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\arrow-down\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\arrow-left\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\arrow-right\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\arrow-up\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\asterisk\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\backward\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\ban-circle\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\bar-chart\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\barcode\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\beaker\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\beer\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\bell-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\bell\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\bitbucket-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\bitbucket\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\bold\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\bolt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\bookmark-empty\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\bookmark\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\book\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\briefcase\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\btc\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\bug\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\building\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\bullhorn\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\bullseye\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\calendar-empty\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\calendar\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\camera-retro\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\camera\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\caret-down\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\caret-left\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\caret-right\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\caret-up\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\certificate\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\check-empty\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\check-minus\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\check-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\check\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\chevron-down\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\chevron-left\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\chevron-right\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\chevron-sign-down\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\chevron-sign-left\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\chevron-sign-right\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\chevron-sign-up\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\chevron-up\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\circle-arrow-down\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\circle-arrow-left\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\circle-arrow-right\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\circle-arrow-up\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\circle-blank\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\circle\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\cloud-download\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\cloud-upload\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\cloud\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\cny\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\code-fork\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\code\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\coffee\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\cogs\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\cog\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\collapse-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\collapse-top\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\collapse\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\columns\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\comment-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\comments-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\comments\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\comment\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\compass\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\copy\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\credit-card\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\crop\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\css3\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\cut\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\dashboard\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\desktop\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\double-angle-down\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\double-angle-left\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\double-angle-right\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\double-angle-up\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\download-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\download\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\dribbble\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\dropbox\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\edit-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\edit\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\eject\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\ellipsis-horizontal\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\ellipsis-vertical\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\envelope-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\envelope\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\eraser\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\eur\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\exchange\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\exclamation-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\exclamation\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\expand-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\expand\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\external-link-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\external-link\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\eye-close\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\eye-open\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\facebook-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\facebook\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\facetime-video\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\fast-backward\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\fast-forward\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\female\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\fighter-jet\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\file-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\file-text-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\file-text\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\file\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\film\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\filter\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\fire-extinguisher\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\fire\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\flag-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\flag-checkered\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\flag\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\flickr\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\folder-close-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\folder-close\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\folder-open-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\folder-open\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\font\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\food\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\forward\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\foursquare\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\frown\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\fullscreen\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\gamepad\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\gbp\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\gift\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\github-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\github-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\github\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\gittip\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\glass\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\globe\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\google-plus-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\google-plus\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\group\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\h-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\hand-down\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\hand-left\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\hand-right\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\hand-up\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\hdd\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\headphones\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\heart-empty\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\heart\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\home\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\hospital\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\html5\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\inbox\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\indent-left\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\indent-right\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\info-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\info\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\inr\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\instagram\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\italic\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\jpy\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\keyboard\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\key\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\krw\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\laptop\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\leaf\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\legal\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\lemon\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\level-down\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\level-up\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\lightbulb\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\linkedin-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\linkedin\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\link\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\linux\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\list-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\list-ol\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\list-ul\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\list\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\location-arrow\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\lock\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\long-arrow-down\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\long-arrow-left\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\long-arrow-right\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\long-arrow-up\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\magic\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\magnet\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\mail-reply-all\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\male\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\map-marker\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\maxcdn\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\medkit\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\meh\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\microphone-off\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\microphone\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\minus-sign-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\minus-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\minus\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\mobile-phone\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\money\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\moon\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\move\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\music\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\off\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\ok-circle\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\ok-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\ok\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\paper-clip\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\paste\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\pause\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\pencil\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\phone-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\phone\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\picture\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\pinterest-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\pinterest\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\plane\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\play-circle\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\play-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\play\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\plus-sign-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\plus-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\plus\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\print\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\pushpin\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\puzzle-piece\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\qrcode\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\question-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\question\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\quote-left\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\quote-right\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\random\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\refresh\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\remove-circle\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\remove-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\remove\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\renren\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\reorder\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\repeat\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\reply-all\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\reply\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\resize-full\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\resize-horizontal\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\resize-small\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\resize-vertical\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\retweet\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\road\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\rocket\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\rss-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\rss\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\save\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\screenshot\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\search\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\share-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\share-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\share\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\shield\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\shopping-cart\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\sign-blank\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\signal\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\signin\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\signout\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\sitemap\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\skype\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\smile\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\sort-by-alphabet-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\sort-by-alphabet\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\sort-by-attributes-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\sort-by-attributes\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\sort-by-order-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\sort-by-order\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\sort-down\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\sort-up\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\sort\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\spinner\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\stackexchange\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\star-empty\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\star-half-empty\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\star-half\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\star\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\step-backward\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\step-forward\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\stethoscope\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\stop\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\strikethrough\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\subscript\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\suitcase\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\sun\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\superscript\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\tablet\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\table\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\tags\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\tag\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\tasks\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\terminal\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\text-height\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\text-width\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\th-large\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\th-list\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\thumbs-down-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\thumbs-down\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\thumbs-up-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\thumbs-up\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\th\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\ticket\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\time\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\tint\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\trash\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\trello\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\trophy\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\truck\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\tumblr-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\tumblr\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\twitter-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\twitter\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\umbrella\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\underline\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\undo\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\unlink\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\unlock-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\unlock\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\upload-alt\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\upload\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\usd\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\user-md\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\user\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\vk\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\volume-down\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\volume-off\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\volume-up\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\warning-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\weibo\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\windows\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\wrench\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\xing-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\xing\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\youtube-play\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\youtube-sign\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\youtube\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\zoom-in\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icon\zoom-out\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\license\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\test\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\whats-new\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\accessibility.html" />
+    <Content Include="Content\Font-Awesome-master\src\assets\css\prettify.css" />
+    <Content Include="Content\Font-Awesome-master\src\assets\css\pygments.css" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Content\Font-Awesome-master\src\assets\ico\favicon.ico" />
+    <Content Include="Content\Font-Awesome-master\src\assets\img\algolia.png" />
+    <Content Include="Content\Font-Awesome-master\src\assets\img\logo-themeisle.png" />
+    <Content Include="Content\Font-Awesome-master\src\assets\img\logo-wpbeginner.png" />
+    <Content Include="Content\Font-Awesome-master\src\assets\js\html5shiv.js" />
+    <Content Include="Content\Font-Awesome-master\src\assets\js\monetization.js" />
+    <Content Include="Content\Font-Awesome-master\src\assets\js\prettify.min.js" />
+    <Content Include="Content\Font-Awesome-master\src\assets\js\respond.min.js" />
+    <Content Include="Content\Font-Awesome-master\src\assets\js\search.js" />
+    <Content Include="Content\Font-Awesome-master\src\assets\js\site.js" />
+    <Content Include="Content\Font-Awesome-master\src\assets\js\ZeroClipboard-1.1.7.min.js" />
+    <Content Include="Content\Font-Awesome-master\src\assets\js\ZeroClipboard-1.1.7.swf" />
+    <Content Include="Content\Font-Awesome-master\src\cdn\error.html" />
+    <Content Include="Content\Font-Awesome-master\src\cdn\success.html" />
+    <Content Include="Content\Font-Awesome-master\src\cheatsheet.html" />
+    <Content Include="Content\Font-Awesome-master\src\community.html" />
+    <Content Include="Content\Font-Awesome-master\src\design.html" />
+    <Content Include="Content\Font-Awesome-master\src\examples.html" />
+    <Content Include="Content\Font-Awesome-master\src\get-started.html" />
+    <Content Include="Content\Font-Awesome-master\src\icons.html" />
+    <Content Include="Content\Font-Awesome-master\src\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\license.html" />
+    <Content Include="Content\Font-Awesome-master\src\store.html" />
+    <Content Include="Content\Font-Awesome-master\src\survey.html" />
+    <Content Include="Content\Font-Awesome-master\src\test\2.3.2.html" />
+    <Content Include="Content\Font-Awesome-master\src\test\all.html" />
+    <Content Include="Content\Font-Awesome-master\src\test\glyphicons.html" />
+    <Content Include="Content\Font-Awesome-master\src\test\height\4.4.0.html" />
+    <Content Include="Content\Font-Awesome-master\src\test\height\4.5.0.html" />
+    <Content Include="Content\Font-Awesome-master\src\test\height\current.html" />
+    <Content Include="Content\Font-Awesome-master\src\test\index.html" />
+    <Content Include="Content\Font-Awesome-master\src\thanks.html" />
+    <Content Include="Content\Font-Awesome-master\src\whats-new.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\accessibility\accessibility-facdn.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\accessibility\accessibility-manual.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\accessibility\background.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\accessibility\cta-cdn-ally.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\accessibility\other.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\ads\carbon.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\brand-adblock-warning.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\brand-license.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\code\license.css" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\community\getting-support.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\community\project-milestones.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\community\reporting-bugs.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\community\requesting-new-icons.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\community\submitting-pull-requests.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\examples\accessible.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\examples\animated.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\examples\basic.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\examples\bootstrap.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\examples\bordered-pulled.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\examples\custom.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\examples\fixed-width.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\examples\larger.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\examples\list.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\examples\rotated-flipped.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\examples\stacked.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\footer.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\accessibility.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\brand.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\chart.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\currency.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\directional.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\file-type.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\form-control.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\gender.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\hand.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\medical.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\new.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\payment.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\spinner.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\text-editor.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\transportation.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\video-player.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\icons\web-application.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\jumbotron-carousel.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\jumbotron.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\modals\download.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\modals\fa5.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\navbar.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\new-features.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\new-naming.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\new-upgrading.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\newsletter-subscribe.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\products\camera-retro-tee.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\products\classics-tee.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\products\cta-suggestions.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\products\fa-ther-tee.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\products\green-logo-tee.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\products\old-skool-tee.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\products\rock-paper-scissors-lizard-spock-tee.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\products\space-shuttle-tee.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\products\white-logo-tee.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\stripe-ad.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\stripe-social.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\tell-me-thanks.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\tests\rotated-flipped-inside-anchor.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\tests\rotated-flipped-inside-btn.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\tests\rotated-flipped.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\tests\stacked-inside-anchor.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\tests\stacked-with-text.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\tests\stacked.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\thanks-to.html" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\why.html" />
+    <Content Include="Content\Font-Awesome-master\src\_layouts\base.html" />
+    <Content Include="Content\Font-Awesome-master\src\_layouts\icon.html" />
+    <Content Include="Content\Font-Awesome-master\src\_layouts\survey.html" />
+    <Content Include="Content\img\ajax-loader.gif" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\weather\icon\dayu.png" />
+    <Content Include="Content\weather\icon\duoyun.png" />
+    <Content Include="Content\weather\icon\qing.png" />
+    <Content Include="Content\weather\icon\xiaoyu.png" />
+    <Content Include="Content\weather\icon\yin.png" />
+    <Content Include="Content\weather\icon\zhongyu.png" />
+    <Content Include="Content\weather\index.html" />
+    <Content Include="Content\weather\js\jquery.leoweather.min.js" />
+    <Content Include="Content\weather\js\jquery.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Content\Font-Awesome-master\.gitignore" />
+    <Content Include="Content\Font-Awesome-master\.npmignore" />
+    <Content Include="Content\Font-Awesome-master\bower.json" />
+    <Content Include="Content\Font-Awesome-master\component.json" />
+    <Content Include="Content\Font-Awesome-master\composer.json" />
+    <Content Include="Content\Font-Awesome-master\CONTRIBUTING.md" />
+    <Content Include="Content\Font-Awesome-master\css\font-awesome.css.map" />
+    <Content Include="Content\Font-Awesome-master\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Font-Awesome-master\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Font-Awesome-master\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Font-Awesome-master\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Font-Awesome-master\fonts\FontAwesome.otf" />
+    <Content Include="Content\Font-Awesome-master\Gemfile" />
+    <Content Include="Content\Font-Awesome-master\Gemfile.lock" />
+    <Content Include="Content\Font-Awesome-master\less\animated.less" />
+    <Content Include="Content\Font-Awesome-master\less\bordered-pulled.less" />
+    <Content Include="Content\Font-Awesome-master\less\core.less" />
+    <Content Include="Content\Font-Awesome-master\less\fixed-width.less" />
+    <Content Include="Content\Font-Awesome-master\less\font-awesome.less" />
+    <Content Include="Content\Font-Awesome-master\less\icons.less" />
+    <Content Include="Content\Font-Awesome-master\less\larger.less" />
+    <Content Include="Content\Font-Awesome-master\less\list.less" />
+    <Content Include="Content\Font-Awesome-master\less\mixins.less" />
+    <Content Include="Content\Font-Awesome-master\less\path.less" />
+    <Content Include="Content\Font-Awesome-master\less\rotated-flipped.less" />
+    <Content Include="Content\Font-Awesome-master\less\screen-reader.less" />
+    <Content Include="Content\Font-Awesome-master\less\stacked.less" />
+    <Content Include="Content\Font-Awesome-master\less\variables.less" />
+    <Content Include="Content\Font-Awesome-master\package.json" />
+    <Content Include="Content\Font-Awesome-master\README.md" />
+    <Content Include="Content\Font-Awesome-master\scss\font-awesome.scss" />
+    <Content Include="Content\Font-Awesome-master\scss\_animated.scss" />
+    <Content Include="Content\Font-Awesome-master\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Font-Awesome-master\scss\_core.scss" />
+    <Content Include="Content\Font-Awesome-master\scss\_fixed-width.scss" />
+    <Content Include="Content\Font-Awesome-master\scss\_icons.scss" />
+    <Content Include="Content\Font-Awesome-master\scss\_larger.scss" />
+    <Content Include="Content\Font-Awesome-master\scss\_list.scss" />
+    <Content Include="Content\Font-Awesome-master\scss\_mixins.scss" />
+    <Content Include="Content\Font-Awesome-master\scss\_path.scss" />
+    <Content Include="Content\Font-Awesome-master\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Font-Awesome-master\scss\_screen-reader.scss" />
+    <Content Include="Content\Font-Awesome-master\scss\_stacked.scss" />
+    <Content Include="Content\Font-Awesome-master\scss\_variables.scss" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome.zip" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\font\FontAwesome.otf" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\less\bootstrap.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\less\core.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\less\extras.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\less\font-awesome-ie7.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\less\icons.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\less\mixins.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\less\path.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\less\variables.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\scss\font-awesome-ie7.scss" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\scss\_bootstrap.scss" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\scss\_core.scss" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\scss\_extras.scss" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\scss\_path.scss" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\img\icon-flag.pdf" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\accordion.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\alerts.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\bootstrap.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\breadcrumbs.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\button-groups.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\buttons.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\carousel.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\close.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\code.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\component-animations.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\dropdowns.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\forms.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\grid.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\hero-unit.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\labels-badges.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\layouts.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\media.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\mixins.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\modals.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\navbar.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\navs.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\pager.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\pagination.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\popovers.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\progress-bars.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\reset.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\responsive-1200px-min.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\responsive-767px-max.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\responsive-768px-979px.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\responsive-navbar.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\responsive-utilities.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\responsive.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\scaffolding.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\sprites.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\tables.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\thumbnails.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\tooltip.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\type.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\utilities.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\variables.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\bootstrap-2.3.2\wells.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\lazy.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\mixins.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\responsive-1200px-min.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\responsive-767px-max.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\responsive-768px-979px.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\responsive-navbar.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\responsive.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\site.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\sticky-footer.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\assets\less\variables.less" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\CNAME" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\icons.yml" />
+    <Content Include="Content\Font-Awesome-master\src\3.2.1\Makefile" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\animated.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\core.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\icons.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\larger.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\list.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\mixins.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\path.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\screen-reader.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\stacked.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\less\variables.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\_core.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\_list.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\_path.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\.csscomb.json" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\.csslintrc" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\alerts.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\badges.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\bootstrap.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\breadcrumbs.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\button-groups.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\buttons.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\carousel.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\close.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\code.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\component-animations.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\dropdowns.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\forms.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\glyphicons.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\grid.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\input-groups.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\jumbotron.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\labels.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\list-group.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\media.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\alerts.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\background-variant.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\border-radius.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\buttons.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\center-block.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\clearfix.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\forms.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\gradients.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\grid-framework.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\grid.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\hide-text.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\image.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\labels.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\list-group.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\nav-divider.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\nav-vertical-align.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\opacity.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\pagination.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\panels.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\progress-bar.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\reset-filter.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\reset-text.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\resize.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\responsive-visibility.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\size.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\tab-focus.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\table-row.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\text-emphasis.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\text-overflow.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\mixins\vendor-prefixes.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\modals.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\navbar.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\navs.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\normalize.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\pager.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\pagination.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\panels.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\popovers.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\print.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\progress-bars.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\responsive-embed.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\responsive-utilities.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\scaffolding.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\tables.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\theme.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\thumbnails.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\tooltip.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\type.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\utilities.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\variables.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\bootstrap-3.3.5\wells.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\gandy-grid\grid.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\gandy-grid\mixins.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\algolia.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\banner-ad.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\bootstrap\alerts.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\bootstrap\buttons.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\bootstrap\jumbotron.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\bootstrap\labels.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\bootstrap\modals.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\bootstrap\navbar.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\bootstrap\panels.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\bootstrap\tooltip.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\bootstrap\type.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\bootstrap\variables.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\bootstrap\wells.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\bsap-ad.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\carbon-ad.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\example-rating.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\fa5.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\feature-list.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\fontawesome-icon-list.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\footer.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\jumbotron-carousel.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\layout.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\lazy.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\newsletter.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\print.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\responsive\screen-lg.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\responsive\screen-md.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\responsive\screen-sm-up.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\responsive\screen-sm.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\responsive\screen-xs.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\search.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\social-buttons.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\store.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\stripe-ad.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\sumome.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\textured-bg.less" />
+    <Content Include="Content\Font-Awesome-master\src\assets\less\site\views.less" />
+    <Content Include="Content\Font-Awesome-master\src\CNAME" />
+    <Content Include="Content\Font-Awesome-master\src\icons.yml" />
+    <Content Include="Content\Font-Awesome-master\src\Makefile" />
+    <Content Include="Content\Font-Awesome-master\src\README.md-nobuild" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\code\core.less" />
+    <Content Include="Content\Font-Awesome-master\src\_includes\code\core.scss" />
+    <Content Include="Content\Font-Awesome-master\src\_plugins\flatten_icon_filters.rb" />
+    <Content Include="Content\Font-Awesome-master\src\_plugins\icon_page_generator.rb" />
+    <Content Include="Content\Font-Awesome-master\src\_plugins\site.rb" />
+    <Content Include="Content\Font-Awesome-master\_config.yml" />
+    <EntityDeploy Include="Models\SSCSModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SSCSModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SSCSModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SSCSModel.edmx</DependentUpon>
+      <LastGenOutput>SSCSModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SSCSModel.edmx.diagram">
+      <DependentUpon>SSCSModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\SSCSModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SSCSModel.edmx</DependentUpon>
+      <LastGenOutput>SSCSModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Client\Views\Home\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Client\Views\Home\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Client\Views\Home\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Client\Views\Home\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Client\Views\Home\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Client\Views\Home\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Client\Views\Home\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Client\Views\Home\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="Client\Views\Home\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Client\Views\Home\fonts\pe-icon-social\fonts\pe-icon-social.eot" />
+    <Content Include="Client\Views\Home\fonts\pe-icon-social\fonts\pe-icon-social.woff" />
+    <Content Include="Client\Views\Home\fonts\quicksand-dash\quicksand_dash-webfont.woff" />
+    <Content Include="Client\Views\Home\fonts\quicksand-dash\quicksand_dash-webfont.woff2" />
+    <Content Include="Client\Views\Login\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Client\Views\Login\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Client\Views\Login\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Client\Views\Login\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Client\Views\Login\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Client\Views\Login\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Client\Views\Login\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Client\Views\Login\fonts\icomoon.eot" />
+    <Content Include="Client\Views\Login\fonts\icomoon.ttf" />
+    <Content Include="Client\Views\Login\fonts\icomoon.woff" />
+    <Content Include="Client\Views\Login\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="Client\Views\Login\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Client\Views\Login\fonts\pe-icon-social\fonts\pe-icon-social.eot" />
+    <Content Include="Client\Views\Login\fonts\pe-icon-social\fonts\pe-icon-social.woff" />
+    <Content Include="Client\Views\Login\fonts\quicksand-dash\quicksand_dash-webfont.woff" />
+    <Content Include="Client\Views\Login\fonts\quicksand-dash\quicksand_dash-webfont.woff2" />
+    <Content Include="Client\Views\ApprovalData\assets\design\config.rb" />
+    <Content Include="Client\Views\ApprovalData\assets\design\sass\trumbowyg.scss" />
+    <Content Include="Client\Views\ApprovalData\assets\pic\sc.psd" />
+    <Content Include="Client\Views\ApprovalData\assets\plugins\upload\trumbowyg.upload.php" />
+    <None Include="Properties\PublishProfiles\sscyconfig.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\index.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.tablesorter.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\User.cshtml" />
+    <Content Include="Views\Home\Role.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
+    <Content Include="Views\Home\Role_Menu.cshtml" />
+    <Content Include="Views\Home\ApprovalData.cshtml" />
+    <Content Include="Views\Home\ApprovalNode.cshtml" />
+    <Content Include="Views\Home\ApprovalProcess.cshtml" />
+    <Content Include="Views\Home\Class.cshtml" />
+    <Content Include="Views\Home\Course.cshtml" />
+    <Content Include="Views\Home\Log.cshtml" />
+    <Content Include="Views\Home\Major.cshtml" />
+    <Content Include="Views\Home\Score.cshtml" />
+    <Content Include="Views\Home\Student.cshtml" />
+    <Content Include="Views\Home\Teacher.cshtml" />
+    <Content Include="Views\Home\ApprovalNode_User.cshtml" />
+    <Content Include="Views\Home\Course_Teacher.cshtml" />
+    <Content Include="Views\Home\User_Role.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\ClassRoom.cshtml" />
+    <Content Include="Views\Home\ClassRoom_User.cshtml" />
+    <Content Include="Views\Home\Leave.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1700</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1700/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

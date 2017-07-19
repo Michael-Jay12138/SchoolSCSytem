@@ -1,0 +1,188 @@
+﻿<script>
+    //让表格数据可排序
+    $(document).ready(function () {
+        $("#table").tablesorter();
+    })
+    //保存cookie
+    function setCookie(name, value) {
+        var Days = 30;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";
+    }
+    //点击搜索的功能
+    function submitFn(obj, evt) {
+        value = $(obj).find('#search-input').val().trim();
+        setCookie("menuname", value);
+        window.location.href = "/Home/Menu";
+        evt.preventDefault();
+    }
+</script>
+<hr />
+<div ng-app="atTheStudents">
+    <!--显示数据的列表-->
+    <div ng-controller="ListController" class="table-responsive">
+        <a href="" ng-click="create()" class="btn btn-info" data-toggle="modal" data-target="#createModal" style="float:left" ng-show="IsManager">Create</a>
+        <!--<div ng-include="'/Client/Views/Student/edit.html'"></div>-->
+        <form onsubmit="submitFn(this, event);">
+            <button type="submit" class="btn btn-info" style="float:right">搜索</button>
+            <input type="text" id="search-input" placeholder="请输入搜索词" class="form-control" style="float:right">
+        </form>
+        <table class="table table-striped" id="table">
+            <thead>
+                <tr>
+                    <th>菜单序号</th>
+                    <th>父菜单名称</th>
+                    <th>菜单名称</th>
+                    <th>状态</th>
+                    <th>页面地址</th>
+                    <th>菜单等级</th>
+                    <th>图标</th>
+                    <th ng-show="IsManager">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="menu in menus">
+                    <td>{{menu.MenuId}}</td>
+                    <td>{{menu.ParentName}}</td>
+                    <td>{{menu.MenuName}}</td>
+                    <td>{{menu.State}}</td>
+                    <td>{{menu.PageUrl}}</td>
+                    <td>{{menu.MenuLevel}}</td>
+                    <td>{{menu.Icon}}</td>
+                    <td>
+                        <a href="#/menu/details/{{menu.MenuId}}" class="btn btn-info" ng-show="IsManager">Details</a>
+                        <a href="" ng-click="edit(menu)" data-toggle="modal" data-target="#createModal" class="btn btn-info" ng-show="IsManager">Edit</a>
+                        <a href="" ng-click="confirmdelete(menu)" data-toggle="modal" data-target="#confirmModal" class="btn btn-info" ng-show="IsManager">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="javascript:void(0);" ng-click="Previous()" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <li ng-repeat="page in pages" ng-class="{'active':isActivePage(page.page)}">
+                    <a href="javascript:void(0);" ng-click="selectPage(page.page)">{{page.page}}</a>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0);" ng-click="Next()" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--编辑数据的模态框-->
+    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="EditController">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{edit.model}}</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <fieldset>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">父菜单名称</span>
+                                    <select class="form-control" ng-model="parentname" id="parentname" ng-change="getLevel()">
+                                        <option value="0">根节点</option>
+                                        <option ng-repeat="item in edit.menu.ParentName" value="{{item.MenuId}}">{{item.MenuName}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">菜单名称</span>
+                                    <input id="menuname" type="text" ng-model="edit.menu.MenuName" required class="form-control" placeholder="MenuName" />
+                                </div>
+
+
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">菜单状态</span>
+                                    <select class="form-control" ng-model="edit.menu.State" id="state">
+                                        <option>正常</option>
+                                        <option>禁用</option>
+                                        <option>维护</option>
+                                    </select>
+                                </div>
+
+
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">页面地址</span>
+                                    <input id="pageurl" type="text" ng-model="edit.menu.PageUrl" required class="form-control" placeholder="PageUrl" />
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">菜单等级</span>
+                                    <input id="menulevel" disabled="disabled" type="number" ng-model="edit.menu.MenuLevel" required class="form-control" placeholder="MenuLevel" />
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">图标</span>
+                                    <i class="{{edit.menu.Icon}}"></i>
+                                    <select class="form-control" ng-model="edit.menu.Icon" id="icon" onchange="document.icon.class =  options[selectedIndex].value ">
+                                        <option>icon-home</option>
+                                        <option>icon-notebook</option>
+                                        <option>icon-graduation</option>
+                                        <option>icon-badge</option>
+                                        <option>icon-book-open</option>
+                                        <option>icon-briefcase</option>
+                                        <option>icon-film</option>
+                                        <option>icon-speech</option>
+                                        <option>icon-printer</option>
+                                        <option>icon-bar-chart</option>
+                                        <option>icon-grid</option>
+                                        <option>icon-picture</option>
+                                        <option>icon-list</option>
+                                        <option>icon-note</option>
+                                        <option>icon-pencil</option>
+                                        <option>icon-question</option>
+                                        <option>icon-pie-chart</option>
+                                        <option>icon-bubble</option>
+                                        <option>icon-clock</option>
+                                        <option>icon-info</option>
+                                        <option>icon-folder</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--删除数据的模态框-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="confirmModal" ng-controller="ListController">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">确定要删除以下数据吗</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <span class="input-group-addon">菜单名称</span>
+                        <input id="menuname" type="text" ng-model="delmenu.MenuName" required class="form-control" placeholder="MenuName" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="deletemenu()">确定</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>

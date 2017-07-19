@@ -1,0 +1,115 @@
+﻿
+<link href="/Content/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link href="/Content/assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="/Content/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN THEME GLOBAL STYLES -->
+<link href="/Content/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+<link href="/Content/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+<script src="http://www.jq22.com/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script language="javascript" src="/Client/Views/ApprovalData/assets/js/jquery.jqprint-0.3.js"></script>
+<script>
+    function print() {
+        $("#formdata").jqprint();
+    }
+</script>
+<div ng-app="atTheApprovalDatas">
+    <div ng-controller="DetailsController">
+        <div class="portlet light " id="form_wizard_1">
+            <div class="portlet-body form">
+                <form class="form-horizontal" action="#" id="submit_form" method="POST">
+                    <div class="form-wizard">
+                        <div class="form-body" id="formdata">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab1">
+                                    <h3 class="block">待审批事务</h3>
+                                    <h4 class="form-section">个人信息</h4>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">创建人序号 :</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static"> {{approvalData.CreatorId}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">创建人姓名:</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static">{{approvalData.CreatorName}} </p>
+                                        </div>
+                                    </div>
+                                    <h4 class="form-section">审批信息</h4>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">审批流程:</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static">{{approvalData.FlowName}} </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">审批类型:</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static"> {{approvalData.ApprovalType}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">审批状态:</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static"> {{approvalData.State}}</p>
+                                        </div>
+                                    </div>
+                                    <h4 class="form-section">审批选项</h4>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">当前审批人:</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static"> {{approvalData.UserName}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">下一审批人:</label>
+                                        <div class="col-md-4">
+                                            <select class="form-control" ng-model="approvalData.NextUserId">
+                                                <option value="0">无</option>
+                                                <option ng-repeat="item in approvors" value="{{item.UserId}}">{{item.UserName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">审批步骤:</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static"> {{approvalData.Step}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <a href="#/approvalData/list" class="btn default button-previous">
+                                        <i class="fa fa-angle-left"></i> 返回
+                                    </a>
+                                    <a href="javascript:;" class="btn btn-danger button-next" ng-click="rejectApprovalData()" ng-show="continue">
+                                        驳回
+                                        <i class="fa fa-warning"></i>
+                                    </a>
+                                    <a href="" class="btn green button-submit" ng-click="passApprovalData()" ng-show="continue">
+                                        同意
+                                        <i class="fa fa-check"></i>
+                                    </a>
+                                    <a href="" class="btn default button-submit" onclick="print()">
+                                        打印
+                                        <i class="fa fa-print"></i>
+                                    </a>
+                                    <a href="" class="btn green button-submit" ng-click="confirmReject()" ng-show="!continue">
+                                        确认
+                                        <i class="fa fa-check"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

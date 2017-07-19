@@ -1,0 +1,40 @@
+﻿<div ng-app="atTheClassRoom_Users">
+    <div ng-controller="DetailsController">
+        <h4>Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                教室序号：
+            </dt>
+
+            <dd>
+                {{classroom_user.ClassRoomId}}
+            </dd>
+
+            <dt>
+                教室名：
+            </dt>
+
+            <dd>
+                {{classroom_user.ClassRoomName}}
+            </dd>
+            <dt>
+                用户序号：
+            </dt>
+
+            <dd>
+                {{classroom_user.UserId}}
+            </dd>
+
+            <dt>
+                用户姓名：
+            </dt>
+
+            <dd>
+                {{classroom_user.UserName}}
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<a href="#/classroom_user/list">返回</a>

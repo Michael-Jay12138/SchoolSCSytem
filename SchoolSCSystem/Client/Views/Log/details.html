@@ -1,0 +1,45 @@
+﻿<div ng-app="atTheLogs">
+    <div ng-controller="DetailsController">
+        <h4>Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                日志编号：
+            </dt>
+
+            <dd>
+                {{log.LogId}}
+            </dd>
+
+            <dt>
+                日志时间：
+            </dt>
+
+            <dd>
+                {{log.LogDate}}
+            </dd>
+
+            <dt>
+                日志类型：
+            </dt>
+
+            <dd>
+                {{log.Type}}
+            </dd>
+            <dt>
+                日志结果：
+            </dt>
+            <dd>
+                {{log.Result}}
+            </dd>
+            <dt>
+                日志详情：
+            </dt>
+            <dd>
+                {{log.Description}}
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<a href="#/log/list">返回</a>

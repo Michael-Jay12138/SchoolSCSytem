@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Home</title>
+        <!-- jQuery -->
+        <script src="js/jquery-3.1.0.min.js"></script>
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Font Awesome Icons -->
+		<link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<!-- PE Icon 7 Stoke -->
+		<link href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+		<link href="fonts/pe-icon-7-stroke/css/helper.css" rel="stylesheet">
+		<!-- PE Icon Social -->
+		<link href="fonts/pe-icon-social/css/pe-icon-social.css" rel="stylesheet">
+		<link href="fonts/pe-icon-social/css/helper.css" rel="stylesheet">
+		<!-- Quicksand Dash -->
+		<link href="fonts/quicksand-dash/stylesheet.css" rel="stylesheet">
+		<!-- Owl Carousel -->
+		<link href="css/owl.carousel.css" rel="stylesheet">
+		<link href="css/owl.theme.default.css" rel="stylesheet">
+		<!-- Sweet Alert -->
+		<link href="css/sweetalert.css" rel="stylesheet">
+		<!-- Animate -->
+		<link href="css/animate.min.css" rel="stylesheet">
+		<!-- Nivo Lightbox -->
+		<link href="scripts/Nivo-Lightbox/nivo-lightbox.css" rel="stylesheet">
+		<link href="scripts/Nivo-Lightbox/themes/default/default.css" rel="stylesheet">
+		<!-- NoUISlider -->
+		<link href="css/jquery.nouislider.min.css" rel="stylesheet">
+		<!-- Style.css -->
+		<link href="css/style.css" rel="stylesheet">
+        <script src="scripts/jquery-ui.min.js"></script>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+        <style>
+            .ui-helper-hidden-accessible {
+                display: none;
+            }
+
+            .ui-autocomplete {
+                position:absolute;
+                color:white;
+                cursor: default;
+            }
+
+            .ui-menu {
+                list-style: circle;
+                padding: 20px;
+                margin: 0;
+                display: block;
+                outline: none;
+            }
+
+                .ui-menu .ui-menu-item a {
+                    text-decoration: none;
+                    display: block;
+                    padding: .2em .4em;
+                    line-height: 1.5;
+                    zoom: 1;
+                }
+
+            .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+                background: #ff8a00;
+                border: none;
+                color: #000;
+                border-radius: 0;
+                font-weight: normal;
+            }
+        </style> 
+
+        <script>
+            //$(window).load(function () {
+            //    window.setTimeout(function () {
+            //        $('#ajax-loader').css("display","block").fadeOut();
+            //    }, 300);
+            //});
+            $(document).ready(function () {
+                var name=getCookie("name");
+                if (name != null)
+                {
+                    $("#welcome").text("欢迎你：" + name).addClass("button login-open");
+                    $("#loginbtn").remove();
+                    $("#logoutbtn").css("display", "block");
+                }
+                $.get("/api/student/GetObjectsNum").then(function (result) {
+                    var jsonstr = "[{";
+                    for (i = 0; i < result.length; i++) {
+                        jsonstr += i + ":" + "\"" + result[i] + "\",";
+                    }
+                    jsonstr = jsonstr.substring(0, jsonstr.lastIndexOf(','));
+                    jsonstr += "}]";
+                    var jsonobj = eval(jsonstr);
+                    $('#teachernum').text(jsonobj[0][0]);
+                    $('#classnum').text(jsonobj[0][1]);
+                    $('#studentnum').text(jsonobj[0][2]);
+                    $('#classroomnum').text(jsonobj[0][3]);
+                    $('#majornum').text(jsonobj[0][4]);
+                    $('#coursenum').text(jsonobj[0][5]);
+                })
+                quicksearch();
+                
+            })
+            function quicksearch() {
+                $("input[data-autocomplete-source]").each(function () {
+                    var target = $(this);
+                    target.autocomplete({ source: target.attr("data-autocomplete-source") });
+                })
+            }
+            function Logout() {
+                delCookie("name");
+                delCookie("userid");
+                location.reload([true]);
+            }
+            function setCookie(name, value) {
+                var Days = 30;
+                var exp = new Date();
+                exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+                document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";
+            }
+            function getCookie(name) {
+                var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+                if (arr = document.cookie.match(reg))
+                    return unescape(arr[2]);
+                else
+                    return null;
+            }
+            function delCookie(name) {
+                var exp = new Date();
+                exp.setTime(exp.getTime() - 1);
+                var cval = getCookie(name);
+                if (cval != null)
+                    document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/";
+            }
+
+            function Login() {
+                var name = $('#loginName').val();
+                var password = $('#loginPassWord').val();
+                $.get('/api/user/GetUserByName?username=' + name).then(function (data) {
+                    if (data.UserName == name && data.PassWord == password) {
+                        setCookie("userid", data.UserId);
+                        setCookie("name", name);
+                    }
+                    else {
+                        alert("登录失败")
+                    }
+                })
+                window.setTimeout(function () {
+                    $('#ajax-loader').css("display", "block").fadeOut();
+                    location.reload();
+                }, 900);
+            }
+
+            function submitFn(obj, evt) {
+                value = $(obj).find('#search-input').val().trim();
+                kind = $(obj).find('#search-kind').val().trim();
+                switch(kind)
+                {
+                    case 'student':
+                        setCookie("studentname", value);
+                        window.location.href = "/Home/Student";
+                        break;
+                    case 'teacher':
+                        setCookie("teachername", value);
+                        window.location.href = "/Home/Teacher";
+                        break;
+                    case 'class':
+                        setCookie("classname", value);
+                        window.location.href = "/Home/Class";
+                        break;
+                    case 'course':
+                        setCookie("coursename", value);
+                        window.location.href = "/Home/Course";
+                        break;
+                    case 'major':
+                        setCookie("majorname", value);
+                        window.location.href = "/Home/Major";
+                        break;
+                    case 'classroom':
+                        setCookie("classroomname", value);
+                        window.location.href = "/Home/ClassRoom";
+                        break;
+                }
+                evt.preventDefault();
+            }
+            function changetable() {
+                table = $('#search-kind').val().trim();
+                $('#search-input').attr("data-autocomplete-source", "/Home/QuickSearch?table=" + table);
+                quicksearch();
+            }
+        </script>
+	</head>
+<body>
+
+    <header class="header fixed clearfix">
+        <div class="left">
+            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="SuperUnicorn" class="img-responsive"></a></div> <!-- end .logo -->
+            <form class="header-search" onsubmit="submitFn(this, event);" style="margin-top: 10%; border: solid #16325e; border-radius:50px;">
+                <input type="text" id="search-input" placeholder="搜索..." data-autocomplete-source="/Home/QuickSearch?table=student" style=" height: 50px; width: 200px; line-height: 30px; float: left">
+                <button type="submit" style="height: 50px; line-height: 30px; float: left"><i class="pe-7s-search"></i></button>
+                <select id="search-kind" onchange="changetable()" style="height: 50px; width: 100px; border-bottom-left-radius: 0px; border-top-left-radius: 0px; line-height: 50px; font-size: large; float: left; opacity: 0.5; color: white; background-color: #16325e; ">
+                    <option value="student">学生</option>
+                    <option value="teacher">教师</option>
+                    <option value="class">班级</option>
+                    <option value="course">课程</option>
+                    <option value="major">专业</option>
+                    <option value="classroom">教室</option>
+                </select>
+            </form>
+        
+            
+        </div> <!-- end .left -->
+
+        <div class="right">
+            <span id="welcome" style="float: left;"></span>
+            <a href="" style="float:left;" class="button login-open" id="loginbtn">登录</a>
+            <a href="javascript:void(0);" style="display: none; text-align: center; float: left;" class="button login-open" id="logoutbtn" onclick="Logout()">注销</a>
+        </div> <!-- end .left -->
+    </header> <!-- end .header -->
+
+
+    <div class="section large transparent dark text-center" style="background-image: url('images/background01.jpg');height:100%">
+        <div class="inner" style="height: 100%">
+            <div class="container">
+                <h1>The School Academic Administration System</h1>
+                <p class="lead">Good good study, day day up.</p>
+
+                <div class="highlight-slider-wrapper">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="highlight-slider">
+                                <div class="item">
+                                    <a href="/Home/Major" class="icon">
+                                        <img src="images/专业.png" alt="Major">
+                                        <div class="overlay">Major</div>
+                                    </a> <!-- end .icon -->
+                                </div> <!-- end .item -->
+                                <div class="item">
+                                    <a href="/Home/Teacher" class="icon">
+                                        <img src="images/老师.png" alt="Teacher">
+                                        <div class="overlay">Teacher</div>
+                                    </a> <!-- end .icon -->
+                                </div> <!-- end .item -->
+                                <div class="item">
+                                    <a href="/Home/ClassRoom" class="icon">
+                                        <img src="images/教室.png" alt="Score">
+                                        <div class="overlay">Classroom</div>
+                                    </a> <!-- end .icon -->
+                                </div> <!-- end .item -->
+                                <div class="item">
+                                    <a href="/Home/Class" class="icon">
+                                        <img src="images/班级.png" alt="Class">
+                                        <div class="overlay">Class</div>
+                                    </a> <!-- end .icon -->
+                                </div> <!-- end .item -->
+                                <div class="item">
+                                    <a href="/Home/Student" class="icon">
+                                        <img src="images/学生.png" alt="Student">
+                                        <div class="overlay">Student</div>
+                                    </a> <!-- end .icon -->
+                                </div> <!-- end .item -->
+                                <div class="item">
+                                    <a href="/Home/Course" class="icon">
+                                        <img src="images/课程.png" alt="Course">
+                                        <div class="overlay">Course</div>
+                                    </a> <!-- end .icon -->
+                                </div> <!-- end .item -->
+                            </div> <!-- end .highlight-slider -->
+                        </div> <!-- end .col-md-8 -->
+                    </div> <!-- end .row -->
+                </div> <!-- end .highlight-slider-wrapper -->
+            </div> <!-- end .container -->
+        </div> <!-- end .inner -->
+    </div> <!-- end .section -->
+
+
+    <div class="section light">
+        <div class="inner">
+            <div class="container">
+                <h2 class="text-center">What are you want to know?<small>Whatever is worth doing is worth doing well.</small></h2>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <a href="/Home/Teacher" class="category-box" style="background-image: url('images/category01.jpg');">
+                            <div class="inner">
+                                <img src="images/老师.png" alt="icon">
+                                <span class="number" id="teachernum"></span>
+                                <span class="title">Teacher</span>
+                            </div> <!-- end .inner -->
+                        </a> <!-- end .category-box -->
+                    </div> <!-- end .col-md-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <a href="/Home/Class" class="category-box" style="background-image: url('images/category02.jpg');">
+                            <div class="inner">
+                                <img src="images/班级.png" alt="icon">
+                                <span class="number" id="classnum"></span>
+                                <span class="title">Class</span>
+                            </div> <!-- end .inner -->
+                        </a> <!-- end .category-box -->
+                    </div> <!-- end .col-md-3 -->
+                    <div class="col-sm-6">
+                        <a href="/Home/Student" class="category-box" style="background-image: url('images/category03.jpg');">
+                            <div class="inner">
+                                <img src="images/学生.png" alt="icon">
+                                <span class="number" id="studentnum"></span>
+                                <span class="title">Student</span>
+                            </div> <!-- end .inner -->
+                        </a> <!-- end .category-box -->
+                    </div> <!-- end .col-md-3 -->
+                    <div class="col-sm-6">
+                        <a href="/Home/ClassRoom" class="category-box" style="background-image: url('images/category04.jpg');">
+                            <div class="inner">
+                                <img src="images/教室.png" alt="icon">
+                                <span class="number" id="classroomnum"></span>
+                                <span class="title">Classroom</span>
+                            </div> <!-- end .inner -->
+                        </a> <!-- end .category-box -->
+                    </div> <!-- end .col-sm-6 -->
+                    <div class="col-md-3 col-sm-6">
+                        <a href="/Home/Major" class="category-box" style="background-image: url('images/category05.jpg');">
+                            <div class="inner">
+                                <img src="images/专业.png" alt="icon">
+                                <span class="number" id="majornum"></span>
+                                <span class="title">Major</span>
+                            </div> <!-- end .inner -->
+                        </a> <!-- end .category-box -->
+                    </div> <!-- end .col-md-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <a href="/Home/Course" class="category-box" style="background-image: url('images/category06.jpg');">
+                            <div class="inner">
+                                <img src="images/课程.png" alt="icon">
+                                <span class="number" id="coursenum"></span>
+                                <span class="title">Course</span>
+                            </div> <!-- end .inner -->
+                        </a> <!-- end .category-box -->
+                    </div> <!-- end .col-md-3 -->
+                </div> <!-- end .row -->
+            </div> <!-- end .container -->
+        </div> <!-- end .inner -->
+    </div> <!-- end .section -->
+
+
+
+
+
+    <div class="login-wrapper">
+        <div class="login">
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="账户/学号" id="loginName">
+                </div> <!-- end .form-group -->
+                <div class="form-group">
+                    <input type="password" placeholder="密码" id="loginPassWord">
+                </div> <!-- end .form-group -->
+                <div class="clearfix">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> 记住密码
+                        </label>
+                    </div>
+                </div> <!-- end .clearfix -->
+                <div class="button-wrapper"><button class="button" type="button" onclick="Login()">登录</button></div>
+                <div class="text-center">
+                </div>
+            </form>
+        </div> <!-- end .login -->
+    </div> <!-- end .login-wrapper -->
+
+    <div id="ajax-loader" style="cursor: progress; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%; background: black; z-index: 10000; overflow: hidden;display:none">
+        <img src="/Content/img/3.gif" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto;" />
+    </div>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- rich marker -->
+    <!--<script src="js/richmarker.js"></script>-->
+    <!-- Owl Carousel -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Countdown -->
+    <script src="js/countdown.js"></script>
+    <!-- Sweet Alert -->
+    <script src="js/sweetalert.min.js"></script>
+    <!-- Nivo Lightbox -->
+    <script src="scripts/Nivo-Lightbox/nivo-lightbox.min.js"></script>
+    <!-- NoUISlider -->
+    <script src="js/jquery.nouislider.all.min.js"></script>
+    <!-- Scripts.js -->
+    <script src="js/scripts.js"></script>
+
+</body>
+</html>

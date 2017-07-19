@@ -1,0 +1,57 @@
+﻿<div ng-app="atTheUsers">
+    <div ng-controller="DetailsController">
+        <h4>Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                菜单序号：
+            </dt>
+
+            <dd>
+                {{menu.MenuId}}
+            </dd>
+
+            <dt>
+                父菜单名称：
+            </dt>
+
+            <dd>
+                {{menu.ParentId}}
+            </dd>
+
+            <dt>
+                菜单名称：
+            </dt>
+
+            <dd>
+                {{menu.MenuName}}
+            </dd>
+
+            <dt>
+                菜单状态：
+            </dt>
+
+            <dd>
+                {{menu.State}}
+            </dd>
+
+            <dt>
+                页面地址：
+            </dt>
+
+            <dd>
+                {{menu.PageUrl}}
+            </dd>
+
+            <dt>
+                菜单等级：
+            </dt>
+
+            <dd>
+                {{menu.MenuLevel}}
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<a href="#/menu/list">返回</a>

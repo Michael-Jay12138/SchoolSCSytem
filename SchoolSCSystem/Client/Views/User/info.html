@@ -1,0 +1,92 @@
+﻿<link href="/Content/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link href="/Content/assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="/Content/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN THEME GLOBAL STYLES -->
+<link href="/Content/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+<link href="/Content/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+<div ng-app="atTheUsers">
+    <div ng-controller="InfoController">
+        <div class="portlet light " id="form_wizard_1">
+            <div class="portlet-body form">
+                <form class="form-horizontal" action="#" id="submit_form" method="POST">
+                    <div class="form-wizard">
+                        <div class="form-body" id="formdata">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab1">
+                                    <h3 class="block">个性化设置</h3>
+                                    <h4 class="form-section">个人信息</h4>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">用户姓名 :</label>
+                                        <div class="col-md-4">
+                                            <input id="name" type="text" ng-model="edit.user.UserName" required class="form-control" placeholder="Name" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">用户密码:</label>
+                                        <div class="col-md-4">
+                                            <input id="password" type="password" ng-model="edit.user.PassWord" required class="form-control" placeholder="PassWord" />
+                                        </div>
+                                    </div>
+                                    <h4 class="form-section">个性设置</h4>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">用户头像:</label>
+                                        <div class="col-md-4">
+                                            <img src="/Content/assets/layouts/layout2/img/{{edit.user.UserAvatar}}.jpg" name="avatar">
+                                            <select class="form-control" ng-model="edit.user.UserAvatar" id="avatar" onchange="document.avatar.src = '/Content/assets/layouts/layout2/img/' + options[selectedIndex].value + '.jpg'">
+                                                <option>arm</option>
+                                                <option>bird</option>
+                                                <option>black</option>
+                                                <option>book</option>
+                                                <option>boy</option>
+                                                <option>candy</option>
+                                                <option>cat</option>
+                                                <option>cute</option>
+                                                <option>dog</option>
+                                                <option>enjoy</option>
+                                                <option>fly</option>
+                                                <option>glass</option>
+                                                <option>love</option>
+                                                <option>mia</option>
+                                                <option>rabbit</option>
+                                                <option>sad</option>
+                                                <option>sleep</option>
+                                                <option>sport</option>
+                                                <option>touch</option>
+                                                <option>white</option>
+                                                <option>gungril</option>
+                                                <option>girl</option>
+                                                <option>boy</option>
+                                                <option>chicken</option>
+                                                <option>student</option>
+                                                <option>longhair</option>
+                                                <option>twocats</option>
+                                                <option>threecats</option>
+                                                <option>japan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <a href="User#/user/list" class="btn default button-previous">
+                                        <i class="fa fa-angle-left"></i> 返回
+                                    </a>
+                                    <a href="" class="btn green button-submit" ng-click="updateUser()">
+                                        确认
+                                        <i class="fa fa-check"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

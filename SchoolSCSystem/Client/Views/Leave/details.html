@@ -1,0 +1,43 @@
+﻿<div ng-app="atTheLeaves">
+    <div ng-controller="DetailsController">
+        <h4>Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                请假序号：
+            </dt>
+
+            <dd>
+                {{leave.LeaveId}}
+            </dd>
+
+            <dt>
+                请假学生序号：
+            </dt>
+
+            <dd>
+                {{leave.LeaveStuId}}
+            </dd>
+
+            <dt>
+                请假时间：
+            </dt>
+
+            <dd>
+                {{leave.LeaveTime}}
+            </dd>
+
+            <dt>
+                请假原因：
+            </dt>
+
+            <dd>
+                {{leave.LeaveReason}}
+            </dd>
+
+        </dl>
+    </div>
+</div>
+
+<a href="#/leave/list">返回</a>
+

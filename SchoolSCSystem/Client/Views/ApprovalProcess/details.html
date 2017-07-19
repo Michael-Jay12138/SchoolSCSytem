@@ -1,0 +1,26 @@
+﻿<div ng-app="atTheApprovalProcesses">
+    <div ng-controller="DetailsController">
+        <h4>Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                审批序号：
+            </dt>
+
+            <dd>
+                {{approvalProcess.ProcessId}}
+            </dd>
+
+            <dt>
+                审批名称：
+            </dt>
+
+            <dd>
+                {{approvalProcess.ProcessName}}
+            </dd>
+
+        </dl>
+    </div>
+</div>
+
+<a href="#/approvalProcess/list">返回</a>

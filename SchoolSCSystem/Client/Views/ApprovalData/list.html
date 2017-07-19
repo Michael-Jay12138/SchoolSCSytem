@@ -1,0 +1,205 @@
+﻿<script>
+    //让表格数据可排序
+    $(document).ready(function () {
+        $("#table").tablesorter();
+    })
+    //保存cookie
+    function setCookie(name, value) {
+        var Days = 30;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";
+    }
+    //点击搜索的功能
+    function submitFn(obj, evt) {
+        value = $(obj).find('#search-input').val().trim();
+        setCookie("approvalDataname", value);
+        window.location.href = "/Home/ApprovalData";
+        evt.preventDefault();
+    }
+</script>
+<hr />
+<div ng-app="atTheApprovalDatas">
+    <!--显示数据的列表-->
+    <div ng-controller="ListController" class="table-responsive">
+        <a href="" ng-click="create()" class="btn btn-info" data-toggle="modal" data-target="#createModal" style="float:left" ng-show="IsManager">Create</a>
+        <a href="#/approvalData/form" class="btn btn-danger" style="float:left">New</a>
+        <!--<div ng-include="'/Client/Views/Student/edit.html'"></div>-->
+        <form onsubmit="submitFn(this, event);">
+            <button type="submit" class="btn btn-info" style="float:right">搜索</button>
+            <input type="text" id="search-input" placeholder="请输入搜索词" class="form-control" style="float:right">
+        </form>
+        <table class="table table-striped" id="table">
+            <thead>
+                <tr>
+                    <th>审批数据序号</th>
+                    <th>审批人姓名</th>
+                    <th>审批状态</th>
+                    <th>审批节点</th>
+                    <th>审批流程</th>
+                    <th>创建者姓名</th>
+                    <th>审批类型</th>
+                    <th>所选课程序号</th>
+                    <th>请假表序号</th>
+                    <th>所选教室序号</th>
+                    <th ng-show="IsManager">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="approvalData in approvalDatas">
+                    <td>{{approvalData.DataId}}</td>
+                    <td>{{approvalData.UserName}}</td>
+                    <td>{{approvalData.State}}</td>
+                    <td>{{approvalData.Step}}</td>
+                    <td>{{approvalData.FlowName}}</td>
+                    <td>{{approvalData.CreatorName}}</td>
+                    <td>{{approvalData.ApprovalType}}</td>
+                    <td>{{approvalData.SelectCourseId}}</td>
+                    <td>{{approvalData.SelectLeaveId}}</td>
+                    <td>{{approvalData.SelectClassRoomId}}</td>
+                    <td>
+                        <a href="#/approvalData/details/{{approvalData.DataId}}" class="btn btn-info" ng-show="IsManager">Details</a>
+                        <a href="" ng-click="edit(approvalData)" data-toggle="modal" data-target="#createModal" class="btn btn-info" ng-show="IsManager">Edit</a>
+                        <a href="" ng-click="confirmdelete(approvalData)" data-toggle="modal" data-target="#confirmModal" class="btn btn-info" ng-show="IsManager">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="javascript:void(0);" ng-click="Previous()" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <li ng-repeat="page in pages" ng-class="{'active':isActivePage(page.page)}">
+                    <a href="javascript:void(0);" ng-click="selectPage(page.page)">{{page.page}}</a>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0);" ng-click="Next()" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--编辑数据的模态框-->
+    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="EditController">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{edit.model}}</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <fieldset>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">审批人姓名</span>
+                                    <select class="form-control" ng-model="user" id="user">
+                                        <option ng-repeat="item in edit.approvalData.User" value="{{item.UserId}}">{{item.UserName}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">审批状态</span>
+                                    <select class="form-control" ng-model="edit.approvalData.State" id="state">
+                                        <option>审批中</option>
+                                        <option>待审批</option>
+                                        <option>已审批</option>
+                                        <option>已驳回</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">审批流程</span>
+                                    <select class="form-control" ng-model="approvalprocess" id="approvalprocess" ng-change="getProcess()">
+                                        <option ng-repeat="item in edit.approvalData.ApprovalProcess" value="{{item.ProcessId}}">{{item.ProcessName}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group" ng-show="Process()">
+                                    <span class="input-group-addon">审批步骤</span>
+                                    <select class="form-control" ng-model="steps" id="steps">
+                                        <option ng-repeat="item in edit.approvalData.Step" value="{{item.NodeId}}">{{item.NodeId}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">创建者姓名</span>
+                                    <select class="form-control" ng-model="creator" id="creator">
+                                        <option ng-repeat="item in edit.approvalData.Creator" value="{{item.UserId}}">{{item.UserName}}</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">审批类型</span>
+                                    <select class="form-control" ng-model="approvaltype" id="approvaltype" ng-change="getApproval()">
+                                        <option value="选课">选课</option>
+                                        <option value="请假">请假</option>
+                                        <option value="预定教室">预定教室</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="input-group" ng-show="CourseApproval()">
+                                    <span class="input-group-addon">所选课程</span>
+                                    <select class="form-control" ng-model="selectcourses" id="selectcourses">
+                                        <option ng-repeat="item in edit.approvalData.SelectCourses" value="{{item.CourseId}}">{{item.CourseName}}</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="input-group" ng-show="LeaveApproval()">
+                                    <span class="input-group-addon">所选假条</span>
+                                    <select class="form-control" ng-model="selectleaves" id="selectleaves">
+                                        <option ng-repeat="item in edit.approvalData.SelectLeaves" value="{{item.LeaveId}}">{{item.LeaveReason}}</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="input-group" ng-show="ClassRoomApproval()">
+                                    <span class="input-group-addon">所选教室</span>
+                                    <select class="form-control" ng-model="selectclassrooms" id="selectclassrooms">
+                                        <option ng-repeat="item in edit.approvalData.SelectClassRooms" value="{{item.ClassRoomId}}">{{item.ClassRoomName}}</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--删除数据的模态框-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="confirmModal" ng-controller="ListController">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">确定要删除以下数据吗</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <span class="input-group-addon">审批状态</span>
+                        <input id="name" type="text" ng-model="delapprovalData.State" required class="form-control" placeholder="Name" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="deleteapprovalData()">确定</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>

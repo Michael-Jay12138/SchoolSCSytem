@@ -1,0 +1,133 @@
+﻿<script>
+    //让表格数据可排序
+    $(document).ready(function () {
+        $("#table").tablesorter();
+    })
+    //保存cookie
+    function setCookie(name, value) {
+        var Days = 30;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";
+    }
+    //点击搜索的功能
+    function submitFn(obj, evt) {
+        value = $(obj).find('#search-input').val().trim();
+        setCookie("user_rolename", value);
+        window.location.href = "/Home/User_Role";
+        evt.preventDefault();
+    }
+</script>
+<hr />
+<div ng-app="atTheUser_Roles">
+    <!--显示数据的列表-->
+    <div ng-controller="ListController" class="table-responsive">
+        <a href="" ng-click="create()" class="btn btn-info" data-toggle="modal" data-target="#createModal" style="float:left" ng-show="IsManager">Create</a>
+        <!--<div ng-include="'/Client/Views/Student/edit.html'"></div>-->
+        <form onsubmit="submitFn(this, event);">
+            <button type="submit" class="btn btn-info" style="float:right">搜索</button>
+            <input type="text" id="search-input" placeholder="请输入搜索词" class="form-control" style="float:right">
+        </form>
+        <table class="table table-striped" id="table">
+            <thead>
+                <tr>
+                    <th>用户名称</th>
+                    <th>角色名称</th>
+                    <th ng-show="IsManager">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user_role in user_roles">
+                    <td>{{user_role.UserName}}</td>
+                    <td>{{user_role.RoleName}}</td>
+                    <td>
+                        <a href="#/user_role/details/{{user_role.UserId}}&{{user_role.RoleId}}" class="btn btn-info" ng-show="IsManager">Details</a>
+                        <a href="" ng-click="edit(user_role)" data-toggle="modal" data-target="#createModal" class="btn btn-info" ng-show="IsManager">Edit</a>
+                        <a href="" ng-click="confirmdelete(user_role)" data-toggle="modal" data-target="#confirmModal" class="btn btn-info" ng-show="IsManager">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="javascript:void(0);" ng-click="Previous()" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <li ng-repeat="page in pages" ng-class="{'active':isActivePage(page.page)}">
+                    <a href="javascript:void(0);" ng-click="selectPage(page.page)">{{page.page}}</a>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0);" ng-click="Next()" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--编辑数据的模态框-->
+    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="EditController">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{edit.model}}</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <fieldset>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">用户名称</span>
+                                    <select class="form-control" ng-model="user" id="user">
+                                        <option ng-repeat="item in edit.user_role.User" value="{{item.UserId}}">{{item.UserName}}</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">角色名称</span>
+                                    <select class="form-control" ng-model="role" id="role">
+                                        <option ng-repeat="item in edit.user_role.Role" value="{{item.RoleId}}">{{item.RoleName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--删除数据的模态框-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="confirmModal" ng-controller="ListController">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">确定要删除以下数据吗</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <span class="input-group-addon">用户名称</span>
+                        <input id="userid" type="text" ng-model="deluser_role.UserName" required class="form-control" placeholder="User" />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">角色名称</span>
+                        <input id="roleid" type="text" ng-model="deluser_role.RoleName" required class="form-control" placeholder="Role" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="deleteuser_role()">确定</button> 
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>
