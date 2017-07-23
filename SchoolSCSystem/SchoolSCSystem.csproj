@@ -1449,7 +1449,6 @@
     <Content Include="Content\Font-Awesome-master\src\3.2.1\license\index.html" />
     <Content Include="Content\Font-Awesome-master\src\3.2.1\test\index.html" />
     <Content Include="Content\Font-Awesome-master\src\3.2.1\whats-new\index.html" />
-    <Content Include="Content\Font-Awesome-master\src\accessibility.html" />
     <Content Include="Content\Font-Awesome-master\src\assets\css\prettify.css" />
     <Content Include="Content\Font-Awesome-master\src\assets\css\pygments.css" />
     <Content Include="Content\Font-Awesome-master\src\assets\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -1478,7 +1477,6 @@
     <Content Include="Content\Font-Awesome-master\src\license.html" />
     <Content Include="Content\Font-Awesome-master\src\store.html" />
     <Content Include="Content\Font-Awesome-master\src\survey.html" />
-    <Content Include="Content\Font-Awesome-master\src\test\2.3.2.html" />
     <Content Include="Content\Font-Awesome-master\src\test\all.html" />
     <Content Include="Content\Font-Awesome-master\src\test\glyphicons.html" />
     <Content Include="Content\Font-Awesome-master\src\test\height\4.4.0.html" />
