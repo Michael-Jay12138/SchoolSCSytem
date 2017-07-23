@@ -1467,12 +1467,6 @@
     <Content Include="Content\Font-Awesome-master\src\assets\js\ZeroClipboard-1.1.7.swf" />
     <Content Include="Content\Font-Awesome-master\src\cdn\error.html" />
     <Content Include="Content\Font-Awesome-master\src\cdn\success.html" />
-    <Content Include="Content\Font-Awesome-master\src\test\all.html" />
-    <Content Include="Content\Font-Awesome-master\src\test\glyphicons.html" />
-    <Content Include="Content\Font-Awesome-master\src\test\height\4.4.0.html" />
-    <Content Include="Content\Font-Awesome-master\src\test\height\4.5.0.html" />
-    <Content Include="Content\Font-Awesome-master\src\test\height\current.html" />
-    <Content Include="Content\Font-Awesome-master\src\test\index.html" />
     <Content Include="Content\Font-Awesome-master\src\_includes\accessibility\accessibility-facdn.html" />
     <Content Include="Content\Font-Awesome-master\src\_includes\accessibility\accessibility-manual.html" />
     <Content Include="Content\Font-Awesome-master\src\_includes\accessibility\background.html" />
